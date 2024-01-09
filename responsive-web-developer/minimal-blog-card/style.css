@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "Sora";
+  src: url(./Sora-VariableFont_wght.ttf);
+}
+
+:root {
+  --color-neutral-100: hsl(0, 0%, 100%);
+  --color-neutral-200: hsl(60, 9%, 98%);
+  --color-neutral-300: hsl(213, 27%, 92%);
+  --color-neutral-400: hsl(265, 86%, 91%);
+  --color-neutral-600: hsl(221, 8%, 46%);
+  --color-neutral-900: hsl(219, 29%, 18%);
+
+  --color-primary-700: hsl(268, 74%, 55%);
+
+  --font-size-x-small: 0.625rem;
+  --font-size-small: 0.75rem;
+  --font-size-medium: 0.875rem;
+  --font-size-large: 1.125rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-600);
+  font-family: "Sora", system-ui, sans-serif;
+  font-size: var(--font-size-medium);
+  display: grid;
+  margin: 0;
+  min-height: 100dvh;
+  place-content: center;
+}
+
+.card {
+  background-color: var(--color-neutral-100);
+  border-radius: 16px;
+  box-shadow: 1em 0.5em 1.5em var(--color-neutral-300);
+  max-width: 352px;
+}
+
+.wrapper {
+  padding-block: 16px 20px;
+  margin-inline: auto;
+  width: calc(100% - 32px);
+}
+
+.card__image {
+  border-radius: 16px;
+}
+
+.card__tag {
+  background-color: var(--color-neutral-400);
+  border-radius: 1000em;
+  color: var(--color-primary-700);
+  font-size: var(--font-size-x-small);
+  font-weight: 700;
+  margin-block: 16px;
+  padding: 0.5em 1.5em;
+  width: fit-content;
+}
+
+h2 {
+  color: var(--color-neutral-900);
+  font-size: var(--font-size-large);
+  margin-block: 16px 6px;
+}
+
+h2 + p {
+  line-height: 1.5;
+  margin: 0;
+}
+
+.card__author {
+  border-top: 1px solid var(--color-neutral-300);
+  padding: 20px 0 20px 16px;
+  font-size: var(--font-size-small);
+}
