@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Lato";
+  font-weight: 700;
+  src: url(./Lato-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Lato";
+  font-weight: 400;
+  src: url(./Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 600;
+  src: url(./Poppins-SemiBold.ttf);
+}
