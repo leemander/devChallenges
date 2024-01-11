@@ -56,7 +56,7 @@ img {
 .container {
   margin-inline: auto;
   max-width: 1180px;
-  width: calc(100% - 2em);
+  width: calc(100% - 3em);
 }
 
 body {
@@ -71,7 +71,7 @@ body {
 }
 
 header {
-  padding-block: 1em;
+  padding-block: 1.5em 1em;
 }
 
 main {
@@ -81,11 +81,10 @@ main {
 .main__intro {
   font-size: var(--font-size-large);
   margin-inline: auto;
-  line-height: 1.7;
   max-width: 700px;
+  line-height: 1.7;
   text-align: center;
   text-wrap: balance;
-  width: calc(100% - 1em);
 }
 
 h1 {
@@ -101,10 +100,11 @@ h1 {
 
 form {
   background-color: var(--color-neutral-300a);
-  border-radius: 1em;
+  border-radius: 2em;
   display: grid;
   gap: 1em;
   margin-block-start: 4em;
+  margin-inline: auto;
   padding: 2em;
   padding-block-end: 5em;
 }
@@ -115,7 +115,7 @@ form *::placeholder {
 
 label {
   display: grid;
-  gap: 0.25em;
+  gap: 0.33em;
   font-size: var(--font-size-small);
   font-weight: 300;
 }
@@ -149,4 +149,34 @@ button {
   font-size: var(--font-size-large);
   font-weight: 700;
   margin-block-start: 1em;
+}
+
+@media (min-width: 62.5em) {
+  form {
+    grid-template-columns: 1fr 1fr;
+    padding-block-end: 2em;
+  }
+
+  label:has(textarea),
+  button {
+    grid-column: 1 / -1;
+  }
+
+  button {
+    margin-block-start: 0.5em;
+  }
+}
+
+@media (min-width: 75em) {
+  :root {
+    --font-size-xx-large: 4rem;
+  }
+
+  .main__intro {
+    font-size: var(--font-size-x-large);
+  }
+
+  form {
+    max-width: 75%;
+  }
 }
