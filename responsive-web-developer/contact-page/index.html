@@ -6,5 +6,60 @@
     <title>Contact Page | devChallenges.io</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <header>
+        <img
+          src="./images/contact-form-icon.svg"
+          alt="Becv"
+          class="header__logo"
+        />
+      </header>
+      <main>
+        <div class="main__intro">
+          <h1>Interested in our business pricing?</h1>
+          <p>
+            Fill out the form to view details and we'll contact you as soon as
+            possible.
+          </p>
+        </div>
+        <form>
+          <label for="name">
+            Name
+            <input type="text" id="name" placeholder="e.g. John Doe" />
+          </label>
+          <label for="email">
+            Company Email
+            <input type="email" id="email" placeholder="e.g. john@doe.com" />
+          </label>
+          <label for="size">
+            Company Size
+            <select id="size">
+              <option value="50-100" selected>50-100 employees</option>
+              <option value="101-150">101-150 employees</option>
+              <option value="151+">151+ employees</option>
+            </select>
+          </label>
+          <label for="subject">
+            Subject
+            <select id="subject">
+              <option value="landing-pages" selected>
+                Building landing pages
+              </option>
+              <option value="websites">Multii-page websites</option>
+              <option value="apps">Mobile apps</option>
+            </select>
+          </label>
+          <label for="message"
+            >Message
+            <textarea
+              id="message"
+              placeholder="Tell us more about your enquiry."
+            ></textarea>
+          </label>
+          <button>Contact Sales</button>
+        </form>
+      </main>
+    </div>
+  </body>
 </html>
