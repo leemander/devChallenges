@@ -124,7 +124,7 @@ header a[data-current] {
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 6.25em;
+  margin-top: 4.25em;
 }
 
 .main__eyebrow {
@@ -137,7 +137,6 @@ main {
 h1 {
   font-size: var(--font-size-x-large);
   margin-block: 0;
-  max-width: 10em;
 }
 
 h1 + p {
@@ -192,4 +191,21 @@ h1 + p {
   height: 2em;
   left: 0;
   top: 50%;
+}
+
+main > img {
+  margin: auto;
+  width: 550px;
+}
+
+@media (max-width: 75em) {
+  main {
+    gap: 5em;
+    grid-template-columns: unset;
+    padding-block-end: 5em;
+  }
+
+  main > img {
+    order: -1;
+  }
 }
