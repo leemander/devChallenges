@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Poppins";
+  font-weight: 400;
+  src: url(./fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 600;
+  src: url(./fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: 700;
+  src: url(./fonts/Poppins-Bold.ttf);
+}
+
+:root {
+  --color-neutral-100: hsl(0, 0%, 100%);
+  --color-neutral-200: hsl(205, 86%, 97%);
+  --color-neutral-500: hsl(220, 1%, 57%);
+  --color-neutral-800: hsl(210, 33%, 20%);
+  --color-neutral-900: hsl(225, 41%, 11%);
+  --color-primary-blue: hsl(227, 66%, 49%);
+  --font-size-x-large: 3.75rem;
+  --font-size-large: 1.125rem;
+  --font-size-medium: 1rem;
+  --font-size-small: 0.875rem;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  margin-inline: auto;
+  max-width: 1400px;
+  width: calc(100% - 10em);
+}
+
+body {
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-800);
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+
+header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-block: 2em;
+}
+
+header ul {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  padding-left: 0;
+}
+
+header a {
+  color: var(--color-neutral-500);
+  font-size: var(--font-size-small);
+  text-decoration: none;
+}
+
+header a[data-current] {
+  color: var(--color-neutral-800);
+}
+
+.header__mode-toggle {
+  align-items: center;
+  background-color: var(--color-neutral-900);
+  border: 0;
+  border-radius: 1000em;
+  cursor: pointer;
+  display: flex;
+  height: 2em;
+  padding: 3px;
+  width: 4em;
+}
+
+.mode-toggle__inner {
+  aspect-ratio: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.25em;
+  border-radius: 50%;
+  display: block;
+  width: 50%;
+}
+
+.mode-toggle__inner.dark {
+  background-image: url(./images/Moon_fill_light.svg);
+}
+
+.mode-toggle__inner.light {
+  background-color: var(--color-neutral-100);
+  background-image: url(./images/Sun_fill.svg);
+}
+
+.header__hamburger {
+  display: none;
+}
