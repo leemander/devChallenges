@@ -7,5 +7,50 @@
     <link rel="stylesheet" href="style.css" />
     <script defer src="main.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <header>
+        <img src="./images/alarado-icon-homepage.svg" alt="Alarado" />
+        <nav>
+          <ul>
+            <li><a href="#" data-current="true">About us</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Resource</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <button aria-label="toggle light/dark mode" class="header__mode-toggle">
+          <span class="mode-toggle__inner dark"></span>
+          <span class="mode-toggle__inner light"></span>
+        </button>
+        <button
+          aria-label="toggle navigation menu"
+          class="header__hamburger"
+        ></button>
+      </header>
+      <main>
+        <div>
+          <p class="main__eyebrow">😎 A simple way to communicate</p>
+          <h1>Actions for Accesibility in Design</h1>
+          <p>
+            The fastest way to build and deploy websites with reusable
+            components.
+          </p>
+          <div class="main__cta">
+            <a href="#" class="cta__button">Get started</a>
+            <a href="#">Get live demo</a>
+          </div>
+          <ul class="main__features">
+            <li>No credit card required</li>
+            <li>No software to install</li>
+          </ul>
+        </div>
+        <img
+          src="./images/hero-image-simple-homepage.png"
+          alt=""
+          class="main__hero-image"
+        />
+      </main>
+    </div>
+  </body>
 </html>
