@@ -231,7 +231,7 @@ main > img {
     right: -1000vw;
     top: 0;
     visibility: hidden;
-    width: 60vw;
+    width: 80vw;
   }
 
   header > nav.show {
@@ -250,7 +250,7 @@ main > img {
 
   header a {
     color: var(--color-neutral-500);
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
   }
 
@@ -285,4 +285,14 @@ main > img {
   .header__hamburger.open > span:nth-child(3) {
     transform: rotate(-45deg);
   } */
+}
+
+@media (max-width: 35em) {
+  :root {
+    --font-size-x-large: 2.5rem;
+  }
+
+  .container {
+    width: calc(100% - 1.5em);
+  }
 }
