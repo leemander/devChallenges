@@ -11,7 +11,7 @@
     <div class="container">
       <header>
         <img src="./images/alarado-icon-homepage.svg" alt="Alarado" />
-        <nav>
+        <nav id="nav-menu">
           <ul>
             <li><a href="#" data-current="true">About us</a></li>
             <li><a href="#">Product</a></li>
@@ -27,16 +27,20 @@
           </button>
         </nav>
         <button
+          aria-label="toggle navigation menu"
+          class="header__hamburger"
+          id="hamburger"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button
           aria-label="toggle light/dark mode"
           class="header__mode-toggle wide-only"
         >
           <span class="mode-toggle__inner dark"></span>
           <span class="mode-toggle__inner light"></span>
-        </button>
-        <button aria-label="toggle navigation menu" class="header__hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
         </button>
       </header>
       <main>
