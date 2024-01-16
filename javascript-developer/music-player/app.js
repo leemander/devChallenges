@@ -18,12 +18,14 @@ const songs = [
     artist: "Cosmo Sheldrake",
     artSrc: "./images/cover-1.png",
     audioSrc: "./lost-in-city-lights-145038.mp3",
+    duration: "01:12",
   },
   {
     title: "Forest Lullaby",
     artist: "Lesfm",
     artSrc: "./images/cover-2.png",
     audioSrc: "./forest-lullaby-110624.mp3",
+    duration: "02:18",
   },
 ];
 
@@ -35,6 +37,7 @@ function loadSong() {
   albumArt.alt = `${songs[currentSong].title} by ${songs[currentSong].artist}`;
   trackTitle.innerText = songs[currentSong].title;
   trackArtist.innerText = songs[currentSong].artist;
+  trackLength.innerText = songs[currentSong].duration;
 }
 
 loadSong();
@@ -57,4 +60,28 @@ skipBackwards.addEventListener("click", () => {
     loadSong();
     audio.play();
   }
+});
+
+function renderTime(time) {
+  let mins = Math.floor(time / 60);
+  if (mins < 10) {
+    mins = `0${mins}`;
+  }
+
+  let seconds = Math.floor(time % 60);
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+
+  return `${mins}:${seconds}`;
+}
+
+function updateProgressBar() {
+  let progress = (audio.currentTime / audio.duration) * 100;
+  progressBar.style.width = `${progress}%`;
+}
+
+audio.addEventListener("timeupdate", () => {
+  currentTime.innerText = renderTime(audio.currentTime);
+  updateProgressBar();
 });
