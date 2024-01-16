@@ -79,3 +79,112 @@ select {
   font-family: "Inter";
   src: url(./Inter-VariableFont_slntwght.ttf);
 }
+
+:root {
+  --color-neutral-100: hsl(220, 13%, 91%);
+  --color-neutral-500: hsl(217, 12%, 34%);
+  --color-neutral-600: hsl(217, 24%, 17%);
+  --color-neutral-700: hsl(217, 24%, 17%);
+  --color-neutral-800: hsla(222, 36%, 11%, 0.651);
+
+  --color-primary-pink: hsl(335, 57%, 51%);
+
+  --font-size-regular: 1rem;
+  --font-size-small: 0.75rem;
+  --font-size-x-small: 0.625rem;
+}
+
+body {
+  background-image: url(./images/bg.jpg);
+  background-size: cover;
+  box-shadow: 0 0 1em var(--color-neutral-800);
+  color: var(--color-neutral-500);
+  display: grid;
+  font-family: "Inter", system-ui, sans-serif;
+  margin: 0;
+  place-content: center;
+  text-align: center;
+}
+
+.player {
+  background-color: var(--color-neutral-800);
+  border-radius: 2em;
+  margin-inline: auto;
+  max-width: 22em;
+  padding: 1.25em 1.25em 2em 1.25em;
+}
+
+.player__art {
+  border-radius: 1em;
+}
+
+.player__info {
+  display: grid;
+  margin-block: 1em;
+}
+
+.player__info > p {
+  margin: 0;
+}
+
+.info__title {
+  color: var(--color-neutral-100);
+}
+
+.info__artist {
+  font-size: var(--font-size-small);
+}
+
+.progress__labels {
+  display: flex;
+  font-size: var(--font-size-x-small);
+  justify-content: space-between;
+}
+
+.progress__bar {
+  background-color: var(--color-neutral-100);
+  border-radius: 1000em;
+  height: 0.25em;
+  margin-block-start: 0.25em;
+  width: 100%;
+}
+
+.bar__inner {
+  background-color: var(--color-primary-pink);
+  border-radius: 1000em;
+  box-shadow: 0 0 0.5em var(--color-primary-pink);
+  height: 100%;
+  width: 50%;
+}
+
+.player__controls {
+  align-items: center;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+
+.player__controls > button {
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-block-start: 2.25em;
+  padding: 1.5em;
+}
+
+.controls__skip--back {
+  background-image: url(./images/Stop_and_play_fill-1.svg);
+}
+
+.controls__play {
+  background-color: var(--color-primary-pink) !important;
+  background-image: url(./images/Play_fill.svg);
+  box-shadow: 0 0.125em 0.5em var(--color-primary-pink);
+}
+
+.controls__skip--forwards {
+  background-image: url(./images/Stop_and_play_fill_reverse.svg);
+}
