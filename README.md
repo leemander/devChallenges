@@ -9,3 +9,7 @@ Solutions to challenges sourced from [devChallenges.io](https://devchallenges.io
 - [Testimonial Page](https://leemander.github.io/devChallenges/responsive-web-developer/testimonial-page/)
 - [Contact Page](https://leemander.github.io/devChallenges/responsive-web-developer/contact-page/)
 - [Simple Homepage](https://leemander.github.io/devChallenges/responsive-web-developer/simple-homepage/)
+
+## JavaScript Developer Path
+
+- [Music Player](https://leemander.github.io/devChallenges/javascript-developer/music-player/)
