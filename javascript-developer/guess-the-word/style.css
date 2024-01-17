@@ -99,13 +99,131 @@ button {
   cursor: pointer;
 }
 
-.container {
+.wrapper {
   margin-inline: auto;
   max-width: 20em;
+}
+
+.visually-hidden {
+  position: absolute;
+  visibility: hidden;
+  left: -1000dvw;
+}
+
+body {
+  align-items: center;
+  background-image: url(./bg-guess-the-word.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--color-neutral-100);
+  flex-direction: column;
+  display: flex;
+  font-family: "Outfit", system-ui, sans-serif;
+  justify-content: center;
+  margin: 0;
+  min-height: 100dvh;
+}
+
+.game {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-neutral-900) 10%,
+    hsl(219, 30%, 17%)
+  );
+  border-radius: 0.5em;
+  margin-inline: auto;
+  max-width: 25em;
+  padding: 2em 1.25em;
   width: calc(100% - 3em);
 }
 
-.wrapper {
+.game__logo {
   margin-inline: auto;
-  max-width: 15em;
+}
+
+.game__word {
+  background-color: var(--color-neutral-500);
+  border-radius: 0.125em;
+  color: var(--color-neutral-300);
+  font-size: var(--font-size-large);
+  padding-block: 0.25em;
+  text-align: center;
+  letter-spacing: 0.5em;
+}
+
+.game__info {
+  color: var(--color-neutral-500);
+  display: flex;
+  font-size: var(--font-size-x-small);
+  justify-content: space-between;
+  margin-top: 2em;
+}
+
+.game__info p {
+  margin: 0;
+}
+
+.info__tries {
+  align-items: center;
+  display: flex;
+  gap: 0.5em;
+  padding-top: 0.25em;
+}
+
+.tries__dots {
+  display: flex;
+  gap: 0.5em;
+}
+
+.dots__dot {
+  aspect-ratio: 1;
+  background-color: var(--color-neutral-500);
+  border-radius: 50%;
+  height: 0.5em;
+  margin: 0;
+}
+
+.dots__dot.filled {
+  background-color: var(--color-primary-600);
+}
+
+#mistakes {
+  color: var(--color-neutral-300);
+  font-size: var(--font-size-small);
+}
+
+.game__input {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  justify-content: center;
+  margin-block: 3em;
+}
+
+.game__input > input {
+  aspect-ratio: 1;
+  background-color: transparent;
+  border: 2px solid var(--color-neutral-500);
+  border-radius: 0.25em;
+  height: 2.5em;
+}
+
+.game__controls {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 2em;
+}
+
+.controls__button {
+  background-color: var(--color-primary-500);
+  border: 0;
+  border-radius: 0.25em;
+  box-shadow: 0 0.25em var(--color-primary-700);
+  color: inherit;
+  font-size: var(--font-size-small);
+  padding: 0.5em 2em;
+  width: fit-content;
 }

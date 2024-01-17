@@ -8,41 +8,39 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <main class="game">
-        <h1 class="visually-hidden">Word Scramblle</h1>
-        <img src="./Word Scramblle.svg" alt="Word Scramblle" />
-        <p class="game__word" id="word">relowf</p>
-        <div class="wrapper">
-          <div class="game__info">
-            <div class="info__tries">
-              <p>Tries (<span id="tries">4</span>/5):</p>
-              <div class="tries__dots" id="dots">
-                <div class="dots__dot filled"></div>
-                <div class="dots__dot filled"></div>
-                <div class="dots__dot filled"></div>
-                <div class="dots__dot filled"></div>
-                <div class="dots__dot"></div>
-              </div>
+    <main class="game">
+      <h1 class="visually-hidden">Word Scramblle</h1>
+      <img src="./Word Scramblle.svg" alt="Word Scramblle" class="game__logo" />
+      <p class="game__word" id="word">relowf</p>
+      <div class="wrapper">
+        <div class="game__info">
+          <div class="info__tries">
+            <p>Tries (<span id="tries">4</span>/5):</p>
+            <div class="tries__dots" id="dots">
+              <div class="dots__dot filled"></div>
+              <div class="dots__dot filled"></div>
+              <div class="dots__dot filled"></div>
+              <div class="dots__dot filled"></div>
+              <div class="dots__dot"></div>
             </div>
-            <p class="info__mistakes">
-              Mistakes: <span id="mistakes">a, e, w, t</span>
-            </p>
           </div>
-          <form class="game__input" id="input">
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-          </form>
-          <div class="game__controls">
-            <button class="controls__button" id="random">Random</button>
-            <button class="controls__button" id="reset">Reset</button>
-          </div>
+          <p class="info__mistakes">
+            Mistakes: <span id="mistakes">a, e, w, t</span>
+          </p>
         </div>
-      </main>
-    </div>
+        <form class="game__input" id="input">
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+        </form>
+        <div class="game__controls">
+          <button class="controls__button" id="random">Random</button>
+          <button class="controls__button" id="reset">Reset</button>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
