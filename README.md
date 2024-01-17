@@ -13,3 +13,4 @@ Solutions to challenges sourced from [devChallenges.io](https://devchallenges.io
 ## JavaScript Developer Path
 
 - [Music Player](https://leemander.github.io/devChallenges/javascript-developer/music-player/)
+- [Music Player](https://leemander.github.io/devChallenges/javascript-developer/guess-the-game/) _Under construction_
