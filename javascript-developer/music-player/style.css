@@ -108,14 +108,14 @@ body {
 
 .player {
   background-color: var(--color-neutral-800);
-  border-radius: 2em;
+  border-radius: 1.5em;
   margin-inline: auto;
   max-width: 22em;
   padding: 1.25em 1.25em 2em 1.25em;
 }
 
 .player__art {
-  border-radius: 1em;
+  border-radius: 1.25em;
 }
 
 .player__info {
@@ -144,6 +144,7 @@ body {
 .progress__bar {
   background-color: var(--color-neutral-100);
   border-radius: 1000em;
+  cursor: pointer;
   height: 0.25em;
   margin-block-start: 0.25em;
   width: 100%;
@@ -154,6 +155,7 @@ body {
   border-radius: 1000em;
   box-shadow: 0 0 0.5em var(--color-primary-pink);
   height: 100%;
+  transition: 0.1s;
   width: 0%;
 }
 
@@ -173,18 +175,43 @@ body {
   cursor: pointer;
   margin-block-start: 2.25em;
   padding: 1.5em;
+  transition: 0.2s;
+}
+
+.player__controls > button:is(:hover, :focus-visible) {
+  scale: 1.05;
 }
 
 .controls__skip--back {
   background-image: url(./images/Stop_and_play_fill-1.svg);
 }
 
+.controls__skip--back:is(:hover, :focus-visible) {
+  background-image: url(./images/Stop_and_play_fill-1_light.svg);
+}
+
 .controls__play {
   background-color: var(--color-primary-pink) !important;
-  background-image: url(./images/Play_fill.svg);
+  background-image: url(./images/Pause_fill.svg);
   box-shadow: 0 0.125em 0.5em var(--color-primary-pink);
 }
 
+.controls__play.paused {
+  background-image: url(./images/Play_fill.svg);
+}
+
 .controls__skip--forwards {
-  background-image: url(./images/Stop_and_play_fill_reverse.svg);
+  background-image: url(./images/Stop_and_play_fill.svg);
+}
+
+.controls__skip--forwards:is(:focus-visible, :hover) {
+  background-image: url(./images/Stop_and_play_fill_light.svg);
+}
+
+@media (min-width: 80em) {
+  :root {
+    --font-size-regular: 1.25rem;
+    --font-size-small: 1rem;
+    --font-size-x-small: 0.75rem;
+  }
 }

@@ -43,26 +43,6 @@ function loadSong() {
 
 loadSong();
 
-play.addEventListener("click", () => {
-  audio.paused ? audio.play() : audio.pause();
-});
-
-skipForwards.addEventListener("click", () => {
-  if (currentSong < songs.length - 1) {
-    currentSong++;
-    loadSong();
-    audio.play();
-  }
-});
-
-skipBackwards.addEventListener("click", () => {
-  if (currentSong > 0) {
-    currentSong--;
-    loadSong();
-    audio.play();
-  }
-});
-
 function renderTime(time) {
   let mins = Math.floor(time / 60);
   if (mins < 10) {
@@ -85,18 +65,51 @@ function updateProgressBar() {
 function seek(e) {
   const width = progressBarOuter.clientWidth;
   const click = e.offsetX;
-
   const percentage = (click / width) * 100;
 
   progressBar.style.width = `${percentage}%`;
   audio.currentTime = (audio.duration * percentage) / 100;
 }
 
+play.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    play.classList.remove("paused");
+  } else {
+    audio.pause();
+    play.classList.add("paused");
+  }
+});
+
+skipForwards.addEventListener("click", () => {
+  if (currentSong < songs.length - 1) {
+    currentSong++;
+    loadSong();
+    audio.play();
+    play.classList.remove("paused");
+  }
+});
+
+skipBackwards.addEventListener("click", () => {
+  if (currentSong > 0) {
+    currentSong--;
+    loadSong();
+    audio.play();
+    play.classList.remove("paused");
+  }
+});
+
+progressBarOuter.addEventListener("click", (e) => seek(e));
+
 audio.addEventListener("timeupdate", () => {
   currentTime.innerText = renderTime(audio.currentTime);
   updateProgressBar();
 });
 
-progressBarOuter.addEventListener("click", (e) => {
-  seek(e);
+audio.addEventListener("ended", () => {
+  if (currentSong < songs.length - 1) {
+    currentSong++;
+    loadSong();
+    audio.play();
+  }
 });
