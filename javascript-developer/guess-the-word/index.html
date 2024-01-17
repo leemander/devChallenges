@@ -7,5 +7,35 @@
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <main class="game">
+        <h1>Word Scramble</h1>
+        <p class="game__word" id="word">relowf</p>
+        <div class="wrapper">
+          <div class="game__info">
+            <div class="info__tries">
+              <p>Tries (<span id="tries">4</span>/5):</p>
+              <div class="tries__dots" id="dots"></div>
+            </div>
+            <p class="info__mistakes">
+              Mistakes: <span id="mistakes">a, e, w, t</span>
+            </p>
+          </div>
+          <form class="game__input" id="input">
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+            <input type="text" />
+          </form>
+          <div class="game__controls">
+            <button class="controls__button" id="random">Random</button>
+            <button class="controls__button" id="reset">Reset</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
