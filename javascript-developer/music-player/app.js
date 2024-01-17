@@ -6,6 +6,7 @@ const trackArtist = document.getElementById("artist");
 
 const currentTime = document.getElementById("current-position");
 const trackLength = document.getElementById("length");
+const progressBarOuter = document.getElementById("progress-bar");
 const progressBar = document.getElementById("progress");
 
 const skipBackwards = document.getElementById("back");
@@ -81,7 +82,21 @@ function updateProgressBar() {
   progressBar.style.width = `${progress}%`;
 }
 
+function seek(e) {
+  const width = progressBarOuter.clientWidth;
+  const click = e.offsetX;
+
+  const percentage = (click / width) * 100;
+
+  progressBar.style.width = `${percentage}%`;
+  audio.currentTime = (audio.duration * percentage) / 100;
+}
+
 audio.addEventListener("timeupdate", () => {
   currentTime.innerText = renderTime(audio.currentTime);
   updateProgressBar();
+});
+
+progressBarOuter.addEventListener("click", (e) => {
+  seek(e);
 });
