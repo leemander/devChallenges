@@ -132,9 +132,11 @@ body {
     hsl(219, 30%, 17%)
   );
   border-radius: 0.5em;
+  box-shadow: 0 0 1em var(--color-neutral-500);
   margin-inline: auto;
-  max-width: 25em;
+  max-width: 26em;
   padding: 2em 1.25em;
+  user-select: none;
   width: calc(100% - 3em);
 }
 
@@ -155,7 +157,9 @@ body {
 .game__info {
   color: var(--color-neutral-500);
   display: flex;
+  flex-wrap: wrap;
   font-size: var(--font-size-x-small);
+  gap: 1em;
   justify-content: space-between;
   margin-top: 2em;
 }
@@ -207,12 +211,31 @@ body {
   background-color: transparent;
   border: 2px solid var(--color-neutral-500);
   border-radius: 0.25em;
+  caret-color: transparent;
+  color: inherit;
   height: 2.5em;
+  text-align: center;
+}
+
+.game__input > input::placeholder {
+  color: transparent;
+  font-weight: 700;
+}
+
+.game__input > input:focus {
+  border-color: var(--color-primary-700);
+  outline: none;
+}
+
+.game__input > input:focus::placeholder {
+  color: var(--color-neutral-100);
 }
 
 .game__controls {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
   justify-content: space-between;
   padding-inline: 2em;
 }
@@ -226,4 +249,9 @@ body {
   font-size: var(--font-size-small);
   padding: 0.5em 2em;
   width: fit-content;
+}
+
+.controls__button:is(:hover, :focus-visible) {
+  box-shadow: none;
+  scale: 0.95;
 }
