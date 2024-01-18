@@ -51,9 +51,10 @@ function scramble(word) {
 
 function evaluate(guess) {
   if (tries < 5) {
+    mistakes = [];
     guess.forEach((letter, index) => {
       if (letter !== currentWord[index]) {
-        if (mistakes.indexOf(letter) === -1) mistakes.push(letter);
+        mistakes.push(letter);
       }
     });
     mistakesEl.innerText = mistakes;
@@ -64,10 +65,12 @@ function evaluate(guess) {
         renderTries();
       }
     } else if (!mistakes.length) {
-      alert("You win!");
+      alert("🎉 Success!");
+      location.reload();
     }
   } else {
-    alert("You lose!");
+    alert(`You lose! The answer was "${currentWord}".`);
+    location.reload();
   }
 }
 
@@ -77,19 +80,40 @@ function renderTries() {
   }
 }
 
+function resetGame() {
+  tries = 0;
+  mistakes = [];
+  triesEl.innerText = tries;
+  dots.forEach((dot) => dot.classList.remove("filled"));
+  mistakesEl.innerText = "";
+  inputForm.reset();
+  inputs[0].select();
+}
+
 wordEl.innerText = scramble(currentWord);
+inputs[0].select();
 
 inputs.forEach((input) =>
   input.addEventListener("keyup", (e) => {
     if (e.code === `Key${e.key.toUpperCase()}`) {
       const currentInputIndex = inputs.indexOf(e.target);
-      if (currentInputIndex < inputs.length - 1) {
-        inputs[currentInputIndex + 1].focus();
-      } else {
+      if (
+        currentInputIndex < inputs.length - 1 &&
+        inputs[currentInputIndex].value !== ""
+      ) {
+        inputs[currentInputIndex + 1].select();
+      } else if (
+        currentInputIndex === inputs.length - 1 &&
+        inputs[currentInputIndex].value !== ""
+      ) {
         const inputs = [...inputForm.elements];
-        const guess = inputs.map((input) => input.value);
+        const guess = inputs.map((input) => input.value.toLowerCase());
         evaluate(guess);
+        inputs[0].select();
       }
     }
   })
 );
+
+randomBtn.addEventListener("click", () => location.reload());
+resetBtn.addEventListener("click", resetGame);
