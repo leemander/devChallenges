@@ -9,7 +9,9 @@ export default function CoffeeCard(props) {
       <div className="justify-between">
         <div className="flex">
           <img
-            src={props.ratings > 0 ? "./Star_fill.svg" : "./Star.svg"}
+            src={
+              props.ratings > 0 ? "./images/Star_fill.svg" : "./images/Star.svg"
+            }
             alt="Star rating"
           />
           {props.ratings > 0 ? (
