@@ -95,8 +95,24 @@ select {
   --font-size-small: 0.625rem;
 }
 
-body {
+.container {
+  margin-inline: auto;
+  max-width: 70em;
+  width: calc(100% - 5em);
+}
+
+.flex {
   align-items: center;
+  display: flex;
+}
+
+.justify-between {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
   background-color: var(--color-neutral-900);
   background-image: url(./images/bg-cafe.jpg);
   background-repeat: no-repeat;
@@ -107,12 +123,139 @@ body {
   font-family: "DM Sans", system-ui, sans-serif;
   justify-content: center;
   margin: 0;
+  min-height: 100dvh;
+  padding-block: 8em;
 }
 
 .collection {
   background-color: var(--color-neutral-800);
+  background-image: url(./images/vector.svg);
+  background-repeat: no-repeat;
+  background-position: top 2.5em left 65%;
+  border-radius: 0.875em;
   margin-inline: auto;
-  max-width: 70em;
+  padding: 6em 7em;
   text-align: center;
-  width: calc(100% - 3em);
+}
+
+h1 {
+  font-size: var(--font-size-heading);
+  font-weight: 600;
+  margin-block-end: 0;
+}
+
+.collection__intro {
+  color: var(--color-neutral-500);
+  max-width: 30em;
+  margin-block: 0.5em 1em;
+  margin-inline: auto;
+  line-height: 1.4;
+}
+
+.collection__button {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0.5em;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.5em 1em;
+}
+
+.collection__button + .collection__button {
+  margin-inline-start: 1em;
+}
+
+.collection__button.selected {
+  background-color: var(--color-neutral-500);
+}
+
+.collection__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
+  gap: 5em 2em;
+  margin-block-start: 2em;
+}
+
+.collection__card {
+  display: grid;
+  gap: 1em;
+  margin: auto;
+  max-width: 19em;
+  position: relative;
+  width: 100%;
+}
+
+.card__img {
+  border-radius: 1em;
+  height: 11em;
+  object-fit: cover;
+  width: 100%;
+}
+
+.collection__card.popular::after {
+  background-color: var(--color-yellow);
+  border-radius: 1000em;
+  color: var(--color-neutral-900);
+  content: "Popular";
+  display: block;
+  font-size: var(--font-size-label);
+  font-weight: 600;
+  height: auto;
+  left: 1em;
+  padding: 0.125em 0.5em;
+  position: absolute;
+  top: 1em;
+  width: auto;
+}
+
+h2 {
+  font-size: var(--font-size-body);
+  margin: 0;
+}
+
+.card__price {
+  background-color: var(--color-green);
+  border-radius: 0.25em;
+  color: var(--color-neutral-900);
+  font-size: var(--font-size-price);
+  font-weight: 600;
+  padding: 0.25em 0.5em;
+}
+
+.card__rating {
+  margin-inline-start: 0.25em;
+  padding-block-start: 0.125em;
+}
+
+.card__ratings {
+  color: var(--color-neutral-500);
+  font-size: var(--font-size-label);
+  font-weight: 600;
+}
+
+.card__sold-out {
+  color: var(--color-red);
+  font-size: var(--font-size-label);
+  font-weight: 600;
+}
+
+@media (max-width: 70em) {
+  .container {
+    max-width: 50em;
+  }
+
+  .collection {
+    background-position: top 4em left 75%;
+  }
+}
+
+@media (max-width: 42em) {
+  .container {
+    max-width: 30em;
+  }
+
+  .collection {
+    background-position: top 4em right -3.75em;
+    padding-inline: 1em;
+  }
 }
