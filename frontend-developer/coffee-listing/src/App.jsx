@@ -1,7 +1,17 @@
+import { useState } from "react";
 import CoffeeCard from "./CoffeeCard";
 import data from "./data.json";
 
 function App() {
+  const [isFiltered, setIsFiltered] = useState(false);
+
+  function filterCoffees() {
+    if (isFiltered) {
+      return data.filter((coffee) => coffee.available);
+    }
+    return data;
+  }
+
   return (
     <>
       <div className="container">
@@ -12,10 +22,20 @@ function App() {
             from different roast types and origins, expertly roasted in small
             batches and shipped fresh weekly.
           </p>
-          <button className="collection__button selected">All Products</button>
-          <button className="collection__button">Available Now</button>
+          <button
+            className={`collection__button ${isFiltered ? "" : "selected"}`}
+            onClick={() => setIsFiltered(false)}
+          >
+            All Products
+          </button>
+          <button
+            className={`collection__button ${isFiltered ? "selected" : ""}`}
+            onClick={() => setIsFiltered(true)}
+          >
+            Available Now
+          </button>
           <div className="collection__grid">
-            {data.map((coffee, index) => {
+            {filterCoffees().map((coffee, index) => {
               return (
                 <CoffeeCard
                   available={coffee.available}
