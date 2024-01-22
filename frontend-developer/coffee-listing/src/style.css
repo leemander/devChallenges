@@ -146,6 +146,7 @@ h1 {
 
 .collection__intro {
   color: var(--color-neutral-500);
+  font-weight: 500;
   max-width: 30em;
   margin-block: 0.5em 1em;
   margin-inline: auto;
@@ -173,7 +174,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
   gap: 5em 2em;
-  margin-block-start: 2em;
+  margin-block-start: 3em;
 }
 
 .collection__card {

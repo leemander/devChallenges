@@ -14,3 +14,7 @@ Solutions to challenges sourced from [devChallenges.io](https://devchallenges.io
 
 - [Music Player](https://leemander.github.io/devChallenges/javascript-developer/music-player/)
 - [Guess the Word](https://leemander.github.io/devChallenges/javascript-developer/guess-the-word/)
+
+# Frontend Developer Path
+
+- [Coffee Listing](https://leemander.github.io/devChallenges/frontend-developer/coffee-listing)
