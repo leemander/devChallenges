@@ -1,0 +1,56 @@
+[
+  {
+    "available": true,
+    "averageRating": "4.7",
+    "imgSrc": "./images/cappucino.jpg",
+    "name": "Cappucino",
+    "popular": true,
+    "price": "$5.20",
+    "ratings": "65"
+  },
+  {
+    "available": true,
+    "averageRating": "4.85",
+    "imgSrc": "./images/house.jpg",
+    "name": "House Coffee",
+    "popular": true,
+    "price": "$3.50",
+    "ratings": "14"
+  },
+  {
+    "available": true,
+    "averageRating": "4.9",
+    "imgSrc": "./images/espresso.jpg",
+    "name": "Espresso",
+    "popular": false,
+    "price": "$2.50",
+    "ratings": "55"
+  },
+  {
+    "available": true,
+    "averageRating": "5.0",
+    "imgSrc": "./images/latte.jpg",
+    "name": "Latte",
+    "popular": false,
+    "price": "$4.50",
+    "ratings": "23"
+  },
+  {
+    "available": false,
+    "averageRating": "4.65",
+    "imgSrc": "./images/chocolate.jpg",
+    "name": "Chocolate Coffee",
+    "popular": false,
+    "price": "$5.20",
+    "ratings": "122"
+  },
+  {
+    "available": true,
+    "averageRating": "",
+    "imgSrc": "./images/valentine.jpg",
+    "name": "Valentine's Special",
+    "popular": false,
+    "price": "$5.50",
+    "ratings": "0"
+  }
+]
