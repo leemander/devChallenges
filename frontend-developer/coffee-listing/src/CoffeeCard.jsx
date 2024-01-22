@@ -1,7 +1,7 @@
 export default function CoffeeCard(props) {
   return (
     <article className={`collection__card ${props.popular && "popular"}`}>
-      <img src={props.img} alt={props.name} />
+      <img src={props.img} alt={props.name} className="card__img" />
       <div className="justify-between">
         <h2>{props.name}</h2>
         <span className="card__price">{props.price}</span>

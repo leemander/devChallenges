@@ -14,12 +14,13 @@ function App() {
         <button className="collection__button selected">All Products</button>
         <button className="collection__button">Available Now</button>
         <div className="collection__grid">
-          {data.map((coffee) => {
+          {data.map((coffee, index) => {
             return (
               <CoffeeCard
                 available={coffee.available}
                 avgRating={coffee.averageRating}
                 img={coffee.imgSrc}
+                key={index + 1}
                 name={coffee.name}
                 popular={coffee.popular}
                 price={coffee.price}
