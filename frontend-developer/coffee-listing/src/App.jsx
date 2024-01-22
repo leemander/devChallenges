@@ -1,3 +1,6 @@
+import CoffeeCard from "./CoffeeCard";
+import data from "./data.json";
+
 function App() {
   return (
     <>
@@ -10,7 +13,21 @@ function App() {
         </p>
         <button className="collection__button selected">All Products</button>
         <button className="collection__button">Available Now</button>
-        <div className="collection__grid"></div>
+        <div className="collection__grid">
+          {data.map((coffee) => {
+            return (
+              <CoffeeCard
+                available={coffee.available}
+                avgRating={coffee.averageRating}
+                img={coffee.imgSrc}
+                name={coffee.name}
+                popular={coffee.popular}
+                price={coffee.price}
+                ratings={coffee.ratings}
+              />
+            );
+          })}
+        </div>
       </main>
     </>
   );

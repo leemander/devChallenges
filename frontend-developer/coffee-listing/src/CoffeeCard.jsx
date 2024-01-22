@@ -10,14 +10,14 @@ export default function CoffeeCard(props) {
         <div className="flex">
           <img
             src={
-              props.ratings > 0 ? "./images/star_fill.svg" : "./images/star.svg"
+              props.ratings > 0 ? "./images/Star_fill.svg" : "./images/Star.svg"
             }
             alt="Star rating"
           />
           {props.ratings > 0 ? (
             <span>
               {props.avgRating}
-              <span className="card__ratings">({props.ratings})</span>
+              <span className="card__ratings"> ({props.ratings})</span>
             </span>
           ) : (
             <span className="card__ratings">No ratings</span>
