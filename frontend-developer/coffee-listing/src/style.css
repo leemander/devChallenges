@@ -114,7 +114,7 @@ select {
 
 body {
   background-color: var(--color-neutral-900);
-  background-image: url(./images/bg-cafe.jpg);
+  background-image: url(./bg-cafe.jpg);
   background-repeat: no-repeat;
   background-size: contain;
   color: var(--color-neutral-100);
@@ -129,7 +129,7 @@ body {
 
 .collection {
   background-color: var(--color-neutral-800);
-  background-image: url(./images/vector.svg);
+  background-image: url(./vector.svg);
   background-repeat: no-repeat;
   background-position: top 2.5em left 65%;
   border-radius: 0.875em;
