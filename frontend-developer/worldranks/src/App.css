@@ -1,0 +1,111 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*RESET ENDS*/
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-weight: 500;
+  src: url("./assets/fonts/BeVietnamPro-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-weight: 600;
+  src: url("./assets/fonts/BeVietnamPro-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-weight: 700;
+  src: url("./assets/fonts/BeVietnamPro-Bold.ttf");
+}
+
+:root {
+  --color-neutral-200: hsl(217, 10%, 84%);
+  --color-neutral-500: hsl(221, 8%, 46%);
+  --color-neutral-700: hsl(217, 9%, 17%);
+  --color-neutral-800: hsl(210, 7%, 11%);
+  --color-blue: hsl(221, 82%, 62%);
+
+  --font-size-heading: 2rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-x-small: 0.75rem;
+
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+}
