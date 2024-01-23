@@ -17,4 +17,4 @@ Solutions to challenges sourced from [devChallenges.io](https://devchallenges.io
 
 # Frontend Developer Path
 
-- [Coffee Listing](https://dev-challenges-liard.vercel.app/)
+- [Coffee Listing](https://dev-challenges-coffee.vercel.app/)
