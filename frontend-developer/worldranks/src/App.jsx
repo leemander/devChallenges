@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./App.css";
+import TableRow from "./TableRow";
 
 function App() {
+  const [countries, setCountries] = useState([]);
+
+  async function getCountries() {
+    const API = "https://restcountries.com/v3.1/all";
+    const res = await axios.get(API);
+    setCountries(res.data);
+  }
+
+  useEffect(() => {
+    getCountries();
+  }, []);
+
   return (
     <>
       <main className="app">
         <form className="app__form">
           <div className="justify-between">
-            <span>Found 234 countries</span>
+            <span>Found {countries.length} countries</span>
             <input
               type="text"
               className="form__search"
@@ -61,6 +75,30 @@ function App() {
             </label>
           </fieldset>
         </form>
+        <table>
+          <thead>
+            <tr>
+              <th>Flag</th>
+              <th>Name</th>
+              <th>Population</th>
+              <th>Area(km³)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {countries.map((country, index) => {
+              return (
+                <TableRow
+                  alt={country.flags.alt}
+                  area={country.area.toLocaleString()}
+                  img={country.flags.svg}
+                  key={index + 1}
+                  name={country.name.common}
+                  pop={country.population.toLocaleString()}
+                />
+              );
+            })}
+          </tbody>
+        </table>
       </main>
     </>
   );
