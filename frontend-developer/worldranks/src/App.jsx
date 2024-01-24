@@ -5,6 +5,18 @@ import TableRow from "./TableRow";
 
 function App() {
   const [countries, setCountries] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sort, setSort] = useState("name");
+  const [formData, setFormData] = useState({
+    americas: true,
+    antarctic: true,
+    africa: true,
+    asia: true,
+    europe: true,
+    oceania: true,
+    un: false,
+    independent: false,
+  });
 
   async function getCountries() {
     const API = "https://restcountries.com/v3.1/all";
@@ -16,6 +28,31 @@ function App() {
     getCountries();
   }, []);
 
+  function updateFormData(e) {
+    e.target.type !== "checkbox"
+      ? setFormData({ ...formData, [e.target.name]: e.target.value })
+      : setFormData({ ...formData, [e.target.name]: e.target.checked });
+  }
+
+  function sortCountries() {
+    if (sort === "name") {
+      return countries.sort((a, b) =>
+        a.name.common.localeCompare(b.name.common)
+      );
+    } else if (sort === "population") {
+      return countries.sort((a, b) => a.population - b.population);
+    } else if (sort === "area") {
+      return countries.sort((a, b) => a.area - b.area);
+    }
+  }
+
+  useEffect(() => {
+    console.log(sort);
+    setCountries(sortCountries);
+  }, [sort]);
+
+  function filterCountries() {}
+
   return (
     <>
       <main className="app">
@@ -23,14 +60,25 @@ function App() {
           <div className="justify-between">
             <span>Found {countries.length} countries</span>
             <input
-              type="text"
               className="form__search"
+              name="search"
               placeholder="Search by name, region, and subregion"
+              type="text"
+              onChange={(e) => setSearchTerm(e.target.value)}
+              value={searchTerm}
             />
           </div>
           <label htmlFor="sort">
             Sort by
-            <select className="form__sort" id="sort">
+            <select
+              className="form__sort"
+              id="sort"
+              name="sort"
+              value={sort}
+              onChange={(e) => {
+                setSort(e.target.value);
+              }}
+            >
               <option value="name">Name</option>
               <option value="population">Population</option>
               <option value="area">Area</option>
@@ -40,38 +88,86 @@ function App() {
             <legend>Region</legend>
             <label htmlFor="americas">
               Americas
-              <input type="checkbox" id="americas" />
+              <input
+                checked={formData.americas}
+                id="americas"
+                name="americas"
+                type="checkbox"
+                onChange={(e) => updateFormData(e)}
+              />
             </label>
             <label htmlFor="antarctic">
               Antarctic
-              <input type="checkbox" id="antarctic" />
+              <input
+                checked={formData.antarctic}
+                id="antarctic"
+                name="antarctic"
+                type="checkbox"
+                onChange={(e) => updateFormData(e)}
+              />
             </label>
             <label htmlFor="africa">
               Africa
-              <input type="checkbox" id="africa" />
+              <input
+                checked={formData.africa}
+                id="africa"
+                name="africa"
+                type="checkbox"
+                onChange={(e) => updateFormData(e)}
+              />
             </label>
             <label htmlFor="asia">
               Asia
-              <input type="checkbox" id="asia" />
+              <input
+                checked={formData.asia}
+                id="asia"
+                name="asia"
+                type="checkbox"
+                onChange={(e) => updateFormData(e)}
+              />
             </label>
             <label htmlFor="europe">
               Europe
-              <input type="checkbox" id="europe" />
+              <input
+                checked={formData.europe}
+                id="europe"
+                name="europe"
+                type="checkbox"
+                onChange={(e) => updateFormData(e)}
+              />
             </label>
             <label htmlFor="oceania">
               Oceania
-              <input type="checkbox" id="oceania" />
+              <input
+                checked={formData.oceania}
+                id="oceania"
+                name="oceania"
+                type="checkbox"
+                onChange={(e) => updateFormData(e)}
+              />
             </label>
           </fieldset>
           <fieldset className="form__status">
             <legend>Status</legend>
             <label htmlFor="un">
               Member of the United Nations
-              <input type="checkbox" id="un" />
+              <input
+                checked={formData.un}
+                id="un"
+                name="un"
+                type="checkbox"
+                onChange={(e) => updateFormData(e)}
+              />
             </label>
             <label htmlFor="independent">
               Independent
-              <input type="checkbox" id="independent" />
+              <input
+                checked={formData.independent}
+                id="independent"
+                name="independent"
+                type="checkbox"
+                onChange={(e) => updateFormData(e)}
+              />
             </label>
           </fieldset>
         </form>
