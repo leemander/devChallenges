@@ -4,7 +4,8 @@ import "./App.css";
 import TableRow from "./TableRow";
 
 function App() {
-  const [countries, setCountries] = useState([]);
+  const [COUNTRIES, setCOUNTRIES] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [sort, setSort] = useState("name");
   const [formData, setFormData] = useState({
@@ -21,7 +22,8 @@ function App() {
   async function getCountries() {
     const API = "https://restcountries.com/v3.1/all";
     const res = await axios.get(API);
-    setCountries(res.data);
+    setFilteredCountries(res.data);
+    setCOUNTRIES(res.data);
   }
 
   useEffect(() => {
@@ -34,22 +36,32 @@ function App() {
       : setFormData({ ...formData, [e.target.name]: e.target.checked });
   }
 
-  function sortCountries() {
-    if (sort === "name") {
-      return countries.sort((a, b) =>
-        a.name.common.localeCompare(b.name.common)
-      );
-    } else if (sort === "population") {
-      return countries.sort((a, b) => a.population - b.population);
-    } else if (sort === "area") {
-      return countries.sort((a, b) => a.area - b.area);
-    }
+  // function sortCountries() {
+  //   if (sort === "name") {
+  //     return countries.sort((a, b) =>
+  //       a.name.common.localeCompare(b.name.common)
+  //     );
+  //   } else if (sort === "population") {
+  //     return countries.sort((a, b) => a.population - b.population);
+  //   } else if (sort === "area") {
+  //     return countries.sort((a, b) => a.area - b.area);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   console.log(sort);
+  //   setCountries(sortCountries);
+  // }, [sort]);
+
+  function searchCountries() {
+    setFilteredCountries(
+      COUNTRIES.filter((country) =>
+        country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
   }
 
-  useEffect(() => {
-    console.log(sort);
-    setCountries(sortCountries);
-  }, [sort]);
+  useEffect(searchCountries, [searchTerm]);
 
   function filterCountries() {}
 
@@ -58,7 +70,7 @@ function App() {
       <main className="app">
         <form className="app__form">
           <div className="justify-between">
-            <span>Found {countries.length} countries</span>
+            <span>Found {filteredCountries.length} countries</span>
             <input
               className="form__search"
               name="search"
@@ -181,7 +193,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {countries.map((country, index) => {
+            {filteredCountries.map((country, index) => {
               return (
                 <TableRow
                   alt={country.flags.alt}
