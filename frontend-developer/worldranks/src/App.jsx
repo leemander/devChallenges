@@ -6,8 +6,6 @@ import TableRow from "./TableRow";
 function App() {
   const [COUNTRIES, setCOUNTRIES] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
-
-  const [sort, setSort] = useState("name");
   const [searchTerm, setSearchTerm] = useState("");
   const [formData, setFormData] = useState({
     americas: true,
@@ -37,51 +35,75 @@ function App() {
       : setFormData({ ...formData, [e.target.name]: e.target.checked });
   }
 
-  // function sortCountries() {
+  // function sortCountries(sort) {
+  //   //use of spread operator here to create a copy of original array and trigger a rerender (https://stackoverflow.com/a/63336312)
   //   if (sort === "name") {
-  //     return countries.sort((a, b) =>
-  //       a.name.common.localeCompare(b.name.common)
-  //     );
+  //     setFilteredCountries([
+  //       ...filteredCountries.sort((a, b) =>
+  //         a.name.common.localeCompare(b.name.common)
+  //       ),
+  //     ]);
   //   } else if (sort === "population") {
-  //     return countries.sort((a, b) => a.population - b.population);
+  //     setFilteredCountries([
+  //       ...filteredCountries.sort((a, b) => a.population - b.population),
+  //     ]);
   //   } else if (sort === "area") {
-  //     return countries.sort((a, b) => a.area - b.area);
+  //     setFilteredCountries([
+  //       ...filteredCountries.sort((a, b) => a.area - b.area),
+  //     ]);
   //   }
   // }
 
-  // useEffect(() => {
-  //   console.log(sort);
-  //   setCountries(sortCountries);
-  // }, [sort]);
+  // function searchCountries() {
+  //   setFilteredCountries(
+  //     COUNTRIES.filter((country) =>
+  //       country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+  //     )
+  //   );
+  // }
 
-  function searchCountries() {
-    setFilteredCountries(
-      COUNTRIES.filter((country) =>
-        country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
-  }
-
-  useEffect(searchCountries, [searchTerm]);
+  // useEffect(searchCountries, [searchTerm]);
 
   function filterCountries() {
+    //creates an array of the keys from formData object where its value equals true
     const filters = [];
     for (const [key, value] of Object.entries(formData)) {
       if (value === true) filters.push(key);
     }
 
     let newFilteredCountries = [];
+
     filters.forEach((filter) => {
       newFilteredCountries.push(
         ...COUNTRIES.filter((country) => {
-          if (country.region.toLowerCase() === filter) return country;
+          if (filter !== "un" && filter !== "independent") {
+            if (country.region.toLowerCase() === filter) return country;
+          }
         })
       );
     });
-    setFilteredCountries(newFilteredCountries);
+
+    if (filters.includes("un")) {
+      newFilteredCountries = newFilteredCountries.filter(
+        (country) => country.unMember
+      );
+    }
+
+    if (filters.includes("independent")) {
+      newFilteredCountries = newFilteredCountries.filter(
+        (country) => country.independent
+      );
+    }
+
+    //before setting the new state the filtered array is filtered again using searchTerm
+    setFilteredCountries(
+      newFilteredCountries.filter((country) =>
+        country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
   }
 
-  useEffect(filterCountries, [formData]);
+  useEffect(filterCountries, [formData, searchTerm]);
 
   return (
     <>
@@ -104,10 +126,9 @@ function App() {
               className="form__sort"
               id="sort"
               name="sort"
-              value={sort}
-              onChange={(e) => {
-                setSort(e.target.value);
-              }}
+              // onChange={(e) => {
+              //   sortCountries(e.target.value);
+              // }}
             >
               <option value="name">Name</option>
               <option value="population">Population</option>
