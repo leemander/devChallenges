@@ -6,8 +6,9 @@ import TableRow from "./TableRow";
 function App() {
   const [COUNTRIES, setCOUNTRIES] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+
   const [sort, setSort] = useState("name");
+  const [searchTerm, setSearchTerm] = useState("");
   const [formData, setFormData] = useState({
     americas: true,
     antarctic: true,
@@ -63,7 +64,24 @@ function App() {
 
   useEffect(searchCountries, [searchTerm]);
 
-  function filterCountries() {}
+  function filterCountries() {
+    const filters = [];
+    for (const [key, value] of Object.entries(formData)) {
+      if (value === true) filters.push(key);
+    }
+
+    let newFilteredCountries = [];
+    filters.forEach((filter) => {
+      newFilteredCountries.push(
+        ...COUNTRIES.filter((country) => {
+          if (country.region.toLowerCase() === filter) return country;
+        })
+      );
+    });
+    setFilteredCountries(newFilteredCountries);
+  }
+
+  useEffect(filterCountries, [formData]);
 
   return (
     <>
