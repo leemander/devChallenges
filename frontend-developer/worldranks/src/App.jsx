@@ -17,6 +17,7 @@ function App() {
     un: false,
     independent: false,
   });
+  const [sort, setSort] = useState("name");
 
   async function getCountries() {
     const API = "https://restcountries.com/v3.1/all";
@@ -35,34 +36,17 @@ function App() {
       : setFormData({ ...formData, [e.target.name]: e.target.checked });
   }
 
-  // function sortCountries(sort) {
-  //   //use of spread operator here to create a copy of original array and trigger a rerender (https://stackoverflow.com/a/63336312)
-  //   if (sort === "name") {
-  //     setFilteredCountries([
-  //       ...filteredCountries.sort((a, b) =>
-  //         a.name.common.localeCompare(b.name.common)
-  //       ),
-  //     ]);
-  //   } else if (sort === "population") {
-  //     setFilteredCountries([
-  //       ...filteredCountries.sort((a, b) => a.population - b.population),
-  //     ]);
-  //   } else if (sort === "area") {
-  //     setFilteredCountries([
-  //       ...filteredCountries.sort((a, b) => a.area - b.area),
-  //     ]);
-  //   }
-  // }
-
-  // function searchCountries() {
-  //   setFilteredCountries(
-  //     COUNTRIES.filter((country) =>
-  //       country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-  //     )
-  //   );
-  // }
-
-  // useEffect(searchCountries, [searchTerm]);
+  function sortCountries(countries) {
+    if (sort === "name") {
+      return countries.sort((a, b) =>
+        a.name.common.localeCompare(b.name.common)
+      );
+    } else if (sort === "population") {
+      return countries.sort((a, b) => b.population - a.population);
+    } else if (sort === "area") {
+      return countries.sort((a, b) => b.area - a.area);
+    }
+  }
 
   function filterCountries() {
     //creates an array of the keys from formData object where its value equals true
@@ -126,9 +110,9 @@ function App() {
               className="form__sort"
               id="sort"
               name="sort"
-              // onChange={(e) => {
-              //   sortCountries(e.target.value);
-              // }}
+              onChange={(e) => {
+                setSort(e.target.value);
+              }}
             >
               <option value="name">Name</option>
               <option value="population">Population</option>
@@ -232,7 +216,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {filteredCountries.map((country, index) => {
+            {sortCountries(filteredCountries).map((country, index) => {
               return (
                 <TableRow
                   alt={country.flags.alt}
