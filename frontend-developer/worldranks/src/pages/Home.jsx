@@ -3,8 +3,7 @@ import axios from "axios";
 
 import TableRow from "../TableRow";
 
-export default function Home() {
-  const [COUNTRIES, setCOUNTRIES] = useState([]);
+export default function Home({ COUNTRIES }) {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [formData, setFormData] = useState({
@@ -18,17 +17,9 @@ export default function Home() {
     independent: false,
   });
   const [sort, setSort] = useState("name");
-
-  async function getCountries() {
-    const API = "https://restcountries.com/v3.1/all";
-    const res = await axios.get(API);
-    setFilteredCountries(res.data);
-    setCOUNTRIES(res.data);
-  }
-
   useEffect(() => {
-    getCountries();
-  }, []);
+    setFilteredCountries(COUNTRIES);
+  }, [COUNTRIES]);
 
   function updateFormData(e) {
     e.target.type !== "checkbox"
@@ -94,7 +85,7 @@ export default function Home() {
       <main className="app">
         <form className="app__form">
           <div className="justify-between">
-            <span>Found {filteredCountries.length} countries</span>
+            {/* <span>Found {filteredCountries.length} countries</span> */}
             <input
               className="form__search"
               name="search"
@@ -216,18 +207,19 @@ export default function Home() {
             </tr>
           </thead>
           <tbody>
-            {sortCountries(filteredCountries).map((country, index) => {
-              return (
-                <TableRow
-                  alt={country.flags.alt}
-                  area={country.area.toLocaleString()}
-                  img={country.flags.svg}
-                  key={index + 1}
-                  name={country.name.common}
-                  pop={country.population.toLocaleString()}
-                />
-              );
-            })}
+            {filteredCountries &&
+              sortCountries(filteredCountries).map((country, index) => {
+                return (
+                  <TableRow
+                    alt={country.flags.alt}
+                    area={country.area.toLocaleString()}
+                    img={country.flags.svg}
+                    key={index + 1}
+                    name={country.name.common}
+                    pop={country.population.toLocaleString()}
+                  />
+                );
+              })}
           </tbody>
         </table>
       </main>
