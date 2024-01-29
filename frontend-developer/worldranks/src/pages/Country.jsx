@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+
 import Neighbour from "../Neighbour";
 
 export default function Country({ COUNTRIES }) {
@@ -43,6 +44,7 @@ export default function Country({ COUNTRIES }) {
   return (
     country.region && (
       <main className="country">
+        <Link to="/">Home</Link>
         <img
           src={country.flags.svg}
           alt={country.flags.alt}

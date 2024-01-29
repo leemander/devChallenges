@@ -85,7 +85,7 @@ export default function Home({ COUNTRIES }) {
       <main className="app">
         <form className="app__form">
           <div className="justify-between">
-            {/* <span>Found {filteredCountries.length} countries</span> */}
+            <span>Found {filteredCountries.length} countries</span>
             <input
               className="form__search"
               name="search"
