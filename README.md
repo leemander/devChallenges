@@ -18,4 +18,4 @@ Solutions to challenges sourced from [devChallenges.io](https://devchallenges.io
 ## Frontend Developer Path
 
 - [Coffee Listing](https://dev-challenges-coffee.vercel.app/)
-- [WorldRanks](https://dev-challenges-coffee.vercel.app/) _Under construction_
+- [WorldRanks](https://dc-worldranks.vercel.app/) _Under construction_
