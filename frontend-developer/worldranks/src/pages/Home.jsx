@@ -199,7 +199,7 @@ export default function Home({ COUNTRIES }) {
             </label>
           </fieldset>
         </form>
-        <table>
+        <table className="app__table">
           <thead>
             <tr>
               <th>Flag</th>
