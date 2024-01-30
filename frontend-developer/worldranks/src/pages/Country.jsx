@@ -44,24 +44,25 @@ export default function Country({ COUNTRIES }) {
   return (
     country.region && (
       <main className="country">
-        <Link to="/">Home</Link>
         <img
           src={country.flags.svg}
           alt={country.flags.alt}
           className="country__flag"
         />
-        <h1 className="country__name">{country.name.common}</h1>
-        <p className="country__official-name">{country.name.official}</p>
-        <div className="country__key-facts">
-          <div className="key-facts__fact">
-            <span>Population</span>
-            <span>{country.population}</span>
+        <div className="country__facts">
+          <h2 className="country__name">{country.name.common}</h2>
+          <p className="country__official-name">{country.name.official}</p>
+          <div className="country__key-facts">
+            <div className="key-facts__fact">
+              <span>Population</span>
+              <span>{country.population.toLocaleString()}</span>
+            </div>
+            <div className="key-facts__fact">
+              <span>Area (km³)</span>
+              <span>{country.area.toLocaleString()}</span>
+            </div>
           </div>
-          <div className="key-facts__fact">
-            <span>Area (km³)</span>
-            <span>{country.area}</span>
-          </div>
-          <table>
+          <table className="country__table">
             <tbody>
               <tr>
                 <th>Capital</th>
@@ -87,8 +88,8 @@ export default function Country({ COUNTRIES }) {
           </table>
           {country.borders && (
             <>
-              <h2>Neighbouring Countries</h2>
-              <div className="flex">
+              <h3>Neighbouring Countries</h3>
+              <div className="country__neighbours">
                 {getNeighbours().map((country, index) => (
                   <Neighbour
                     key={index + 1}
