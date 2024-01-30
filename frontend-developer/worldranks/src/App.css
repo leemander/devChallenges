@@ -213,8 +213,9 @@ legend {
 
 .form__status > label:has(:checked)::before {
   background-color: var(--color-blue);
-  background-image: url(./Done_round.svg);
+  background-image: url(Done_round.svg);
   background-size: cover;
+  background-position: center;
   border-color: transparent;
 }
 
