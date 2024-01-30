@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
@@ -10,14 +9,15 @@ export default function Country({ COUNTRIES }) {
   const params = useParams();
 
   async function getCountry() {
-    const API = `https://restcountries.com/v3.1/name/${params.name}`;
-    const res = await axios.get(API);
-    setCountry(res.data[0]);
+    const newCountry = COUNTRIES.filter(
+      (country) => country.name.common.toLowerCase() === params.name
+    )[0];
+    setCountry(newCountry);
   }
 
   useEffect(() => {
     getCountry();
-  }, []);
+  }, [params.name]);
 
   function getLanguages() {
     const languages = [];

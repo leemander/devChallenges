@@ -1,6 +1,7 @@
 import "./App.css";
 import Home from "./pages/Home";
 import Country from "./pages/Country";
+import ScrollToTop from "./ScrollToTop";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home COUNTRIES={COUNTRIES} />}></Route>
         <Route
