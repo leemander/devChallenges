@@ -5,6 +5,7 @@ import ScrollToTop from "./ScrollToTop";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "./Header";
 
 function App() {
   const [COUNTRIES, setCOUNTRIES] = useState([]);
@@ -22,6 +23,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <Header />
       <Routes>
         <Route path="/" element={<Home COUNTRIES={COUNTRIES} />}></Route>
         <Route
