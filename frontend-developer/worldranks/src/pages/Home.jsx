@@ -85,11 +85,13 @@ export default function Home({ COUNTRIES }) {
       <main className="app">
         <form className="app__form">
           <div className="justify-between">
-            <span>Found {filteredCountries.length} countries</span>
+            <span className="form__found">
+              Found {filteredCountries.length} countries
+            </span>
             <input
               className="form__search"
               name="search"
-              placeholder="Search by name, region, and subregion"
+              placeholder="Search by name, region, subregion"
               type="text"
               onChange={(e) => setSearchTerm(e.target.value)}
               value={searchTerm}
