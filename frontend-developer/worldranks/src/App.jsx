@@ -13,7 +13,9 @@ function App() {
   async function getCountries() {
     const API = "https://restcountries.com/v3.1/all";
     const res = await axios.get(API);
-    setCOUNTRIES(res.data);
+    setCOUNTRIES(
+      res.data.filter((country) => country.name.common !== "Antarctica")
+    );
   }
 
   useEffect(() => {

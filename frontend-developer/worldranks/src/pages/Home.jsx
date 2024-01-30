@@ -18,9 +18,7 @@ export default function Home({ COUNTRIES }) {
   });
   const [sort, setSort] = useState("name");
   useEffect(() => {
-    setFilteredCountries(
-      COUNTRIES.filter((country) => country.name.common !== "Antarctica")
-    );
+    setFilteredCountries(COUNTRIES);
   }, [COUNTRIES]);
 
   function updateFormData(e) {
