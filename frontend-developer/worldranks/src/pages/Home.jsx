@@ -205,7 +205,7 @@ export default function Home({ COUNTRIES }) {
           <table className="app__table">
             <thead>
               <tr>
-                <th>Flag</th>
+                <th className="hidden-small">Flag</th>
                 <th>Name</th>
                 <th>Population</th>
                 <th>Area(km³)</th>

@@ -50,6 +50,16 @@ img {
   visibility: hidden;
 }
 
+.hidden-small {
+  display: none;
+}
+
+@media (min-width: 30em) {
+  .hidden-small {
+    display: block;
+  }
+}
+
 .large-only {
   display: none;
 }
@@ -230,7 +240,7 @@ legend {
   color: var(--color-neutral-200);
   cursor: pointer;
   display: flex;
-  gap: 0.875em;
+  gap: 1.25em;
   position: relative;
 }
 
@@ -262,8 +272,15 @@ legend {
 
 .app__table {
   border-collapse: collapse;
+  font-size: var(--font-size-x-small);
   width: 100%;
   table-layout: fixed;
+}
+
+@media (min-width: 37em) {
+  .app__table {
+    font-size: inherit;
+  }
 }
 
 .app__table th {
@@ -327,6 +344,8 @@ legend {
 .country__key-facts {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
   justify-content: space-between;
   margin-block: 2em;
 }

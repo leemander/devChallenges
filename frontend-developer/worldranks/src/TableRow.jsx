@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function TableRow(props) {
   return (
     <tr>
-      <td>
+      <td className="hidden-small">
         <img src={props.img} alt={props.alt} className="table__flag" />
       </td>
       <td className="table__name">
