@@ -97,133 +97,137 @@ export default function Home({ COUNTRIES }) {
               value={searchTerm}
             />
           </div>
-          <label htmlFor="sort">
-            Sort by
-            <select
-              className="form__sort"
-              id="sort"
-              name="sort"
-              onChange={(e) => {
-                setSort(e.target.value);
-              }}
-            >
-              <option value="name">Name</option>
-              <option value="population">Population</option>
-              <option value="area">Area</option>
-            </select>
-          </label>
-          <fieldset className="form__region">
-            <legend>Region</legend>
-            <label htmlFor="americas">
-              Americas
-              <input
-                checked={formData.americas}
-                id="americas"
-                name="americas"
-                type="checkbox"
-                onChange={(e) => updateFormData(e)}
-              />
-            </label>
-            <label htmlFor="antarctic">
-              Antarctic
-              <input
-                checked={formData.antarctic}
-                id="antarctic"
-                name="antarctic"
-                type="checkbox"
-                onChange={(e) => updateFormData(e)}
-              />
-            </label>
-            <label htmlFor="africa">
-              Africa
-              <input
-                checked={formData.africa}
-                id="africa"
-                name="africa"
-                type="checkbox"
-                onChange={(e) => updateFormData(e)}
-              />
-            </label>
-            <label htmlFor="asia">
-              Asia
-              <input
-                checked={formData.asia}
-                id="asia"
-                name="asia"
-                type="checkbox"
-                onChange={(e) => updateFormData(e)}
-              />
-            </label>
-            <label htmlFor="europe">
-              Europe
-              <input
-                checked={formData.europe}
-                id="europe"
-                name="europe"
-                type="checkbox"
-                onChange={(e) => updateFormData(e)}
-              />
-            </label>
-            <label htmlFor="oceania">
-              Oceania
-              <input
-                checked={formData.oceania}
-                id="oceania"
-                name="oceania"
-                type="checkbox"
-                onChange={(e) => updateFormData(e)}
-              />
-            </label>
-          </fieldset>
-          <fieldset className="form__status">
-            <legend>Status</legend>
-            <label htmlFor="un">
-              Member of the United Nations
-              <input
-                checked={formData.un}
-                id="un"
-                name="un"
-                type="checkbox"
-                onChange={(e) => updateFormData(e)}
-              />
-            </label>
-            <label htmlFor="independent">
-              Independent
-              <input
-                checked={formData.independent}
-                id="independent"
-                name="independent"
-                type="checkbox"
-                onChange={(e) => updateFormData(e)}
-              />
-            </label>
-          </fieldset>
         </form>
-        <table className="app__table">
-          <thead>
-            <tr>
-              <th>Flag</th>
-              <th>Name</th>
-              <th>Population</th>
-              <th>Area(km³)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredCountries &&
-              sortCountries(filteredCountries).map((country, index) => {
-                return (
-                  <TableRow
-                    alt={country.flags.alt}
-                    area={country.area.toLocaleString()}
-                    img={country.flags.svg}
-                    key={index + 1}
-                    name={country.name.common}
-                    pop={country.population.toLocaleString()}
-                  />
-                );
-              })}
-          </tbody>
-        </table>
+        <div className="app__grid">
+          <form className="app__form">
+            <label htmlFor="sort">
+              Sort by
+              <select
+                className="form__sort"
+                id="sort"
+                name="sort"
+                onChange={(e) => {
+                  setSort(e.target.value);
+                }}
+              >
+                <option value="name">Name</option>
+                <option value="population">Population</option>
+                <option value="area">Area</option>
+              </select>
+            </label>
+            <fieldset className="form__region">
+              <legend>Region</legend>
+              <label htmlFor="americas">
+                Americas
+                <input
+                  checked={formData.americas}
+                  id="americas"
+                  name="americas"
+                  type="checkbox"
+                  onChange={(e) => updateFormData(e)}
+                />
+              </label>
+              <label htmlFor="antarctic">
+                Antarctic
+                <input
+                  checked={formData.antarctic}
+                  id="antarctic"
+                  name="antarctic"
+                  type="checkbox"
+                  onChange={(e) => updateFormData(e)}
+                />
+              </label>
+              <label htmlFor="africa">
+                Africa
+                <input
+                  checked={formData.africa}
+                  id="africa"
+                  name="africa"
+                  type="checkbox"
+                  onChange={(e) => updateFormData(e)}
+                />
+              </label>
+              <label htmlFor="asia">
+                Asia
+                <input
+                  checked={formData.asia}
+                  id="asia"
+                  name="asia"
+                  type="checkbox"
+                  onChange={(e) => updateFormData(e)}
+                />
+              </label>
+              <label htmlFor="europe">
+                Europe
+                <input
+                  checked={formData.europe}
+                  id="europe"
+                  name="europe"
+                  type="checkbox"
+                  onChange={(e) => updateFormData(e)}
+                />
+              </label>
+              <label htmlFor="oceania">
+                Oceania
+                <input
+                  checked={formData.oceania}
+                  id="oceania"
+                  name="oceania"
+                  type="checkbox"
+                  onChange={(e) => updateFormData(e)}
+                />
+              </label>
+            </fieldset>
+            <fieldset className="form__status">
+              <legend>Status</legend>
+              <label htmlFor="un">
+                Member of the United Nations
+                <input
+                  checked={formData.un}
+                  id="un"
+                  name="un"
+                  type="checkbox"
+                  onChange={(e) => updateFormData(e)}
+                />
+              </label>
+              <label htmlFor="independent">
+                Independent
+                <input
+                  checked={formData.independent}
+                  id="independent"
+                  name="independent"
+                  type="checkbox"
+                  onChange={(e) => updateFormData(e)}
+                />
+              </label>
+            </fieldset>
+          </form>
+          <table className="app__table">
+            <thead>
+              <tr>
+                <th>Flag</th>
+                <th>Name</th>
+                <th>Population</th>
+                <th>Area(km³)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredCountries &&
+                sortCountries(filteredCountries).map((country, index) => {
+                  return (
+                    <TableRow
+                      alt={country.flags.alt}
+                      area={country.area.toLocaleString()}
+                      img={country.flags.svg}
+                      key={index + 1}
+                      name={country.name.common}
+                      pop={country.population.toLocaleString()}
+                    />
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
       </main>
     </>
   );
