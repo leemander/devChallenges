@@ -54,6 +54,7 @@ img {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  gap: 1em;
   justify-content: space-between;
 }
 
@@ -147,7 +148,7 @@ main {
   cursor: pointer;
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-medium);
-  padding: 0.875em 1em;
+  padding: 0.675em 1em;
 }
 
 .form__sort > option {
@@ -160,6 +161,7 @@ main {
 
 .app__form > fieldset {
   border: 0;
+  margin-block-start: 1em;
   padding: 0;
 }
 
@@ -171,7 +173,7 @@ legend {
 .form__region {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5em;
+  gap: 0.875em;
 }
 
 .form__region > label {
@@ -218,7 +220,7 @@ legend {
   display: block;
   height: 1.5em;
   position: relative;
-  left: 0;
+  left: 0.375em;
   top: 0;
 }
 
@@ -238,7 +240,9 @@ legend {
 
 .app__table {
   border-collapse: collapse;
+  margin-block-start: 1em;
   width: 100%;
+  table-layout: fixed;
 }
 
 .app__table th {
@@ -250,23 +254,27 @@ legend {
   text-align: start;
 }
 
-.app__table th:nth-of-type(2) {
-  padding-left: 1em;
-}
-
 .app__table td {
   padding: 1em 0;
 }
+/* 
+.app__table th:first-of-type {
+  width: 15%;
+}
+
+.app__table th:nth-of-type(2) {
+  width: 20%;
+}
+
+.app__table th:nth-of-type(3) {
+  width: 20%;
+} */
 
 .table__flag {
   border-radius: 0.25em;
   max-height: 2.8em;
   max-width: 3.5em;
   object-fit: cover;
-}
-
-.table__name {
-  padding: 0 1em !important;
 }
 
 .app__table a {
