@@ -426,6 +426,8 @@ legend {
   text-decoration: none;
 }
 
+/*Scroll to top button*/
+
 .app__return {
   aspect-ratio: 1;
   background-color: var(--color-blue);
@@ -452,8 +454,11 @@ legend {
   visibility: visible;
 }
 
-.app__return:is(:hover, :focus-visible) {
-  opacity: 1 !important;
+@media not (pointer: coarse) {
+  /* If device isn't a touch screen device then add a hover state */
+  .app__return:is(:hover, :focus-visible) {
+    opacity: 1 !important;
+  }
 }
 
 @media (min-width: 60em) {
