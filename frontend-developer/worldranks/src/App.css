@@ -56,7 +56,7 @@ img {
 
 @media (min-width: 30em) {
   .hidden-small {
-    display: block;
+    display: table-cell;
   }
 }
 
@@ -454,6 +454,6 @@ legend {
 
 @media (min-width: 75em) {
   .large-only {
-    display: block;
+    display: table-cell;
   }
 }
