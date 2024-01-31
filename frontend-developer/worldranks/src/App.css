@@ -127,8 +127,10 @@ main {
   color: var(--color-neutral-200) !important;
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-semibold);
-  min-width: 25em;
+  max-width: 24em;
+  min-width: 21em;
   padding: 1em 0 1em 3em;
+  width: 100%;
 }
 
 .form__search::placeholder {
