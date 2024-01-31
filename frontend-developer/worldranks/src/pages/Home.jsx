@@ -209,6 +209,7 @@ export default function Home({ COUNTRIES }) {
                 <th>Name</th>
                 <th>Population</th>
                 <th>Area(km³)</th>
+                <th className="large-only">Region</th>
               </tr>
             </thead>
             <tbody>
@@ -222,6 +223,7 @@ export default function Home({ COUNTRIES }) {
                       key={index + 1}
                       name={country.name.common}
                       pop={country.population.toLocaleString()}
+                      region={country.region}
                     />
                   );
                 })}

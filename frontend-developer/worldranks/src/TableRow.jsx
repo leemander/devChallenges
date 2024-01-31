@@ -11,6 +11,7 @@ export default function TableRow(props) {
       </td>
       <td>{props.pop}</td>
       <td>{props.area}</td>
+      <td className="large-only">{props.region}</td>
     </tr>
   );
 }

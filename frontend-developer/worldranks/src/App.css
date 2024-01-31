@@ -50,6 +50,10 @@ img {
   visibility: hidden;
 }
 
+.large-only {
+  display: none;
+}
+
 .justify-between {
   align-items: center;
   display: flex;
@@ -109,6 +113,7 @@ main {
   background-position: top 50% left 0.5em;
   border: 0;
   border-radius: 1em;
+  color: var(--color-neutral-200) !important;
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-semibold);
   min-width: 25em;
@@ -119,12 +124,28 @@ main {
   color: inherit;
 }
 
+.form__search::-webkit-input-placeholder {
+  color: var(--color-neutral-500);
+}
+
+.form__search::-moz-placeholder {
+  color: var(--color-neutral-500);
+}
+
+.form__search:-ms-input-placeholder {
+  color: var(--color-neutral-500);
+}
+
+.form__search:-moz-placeholder {
+  color: var(--color-neutral-500);
+}
+
 .form__search:focus-visible {
   outline: 0;
 }
 
 .app__grid {
-  margin-top: 3em;
+  margin-top: 4em;
 }
 
 .app__form > label {
@@ -146,8 +167,8 @@ main {
   border-radius: 0.875em;
   color: var(--color-neutral-200);
   cursor: pointer;
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
   padding: 0.675em 1em;
 }
 
@@ -240,7 +261,6 @@ legend {
 
 .app__table {
   border-collapse: collapse;
-  margin-block-start: 1em;
   width: 100%;
   table-layout: fixed;
 }
@@ -254,21 +274,13 @@ legend {
   text-align: start;
 }
 
+.app__table th:first-of-type {
+  width: 8em;
+}
+
 .app__table td {
   padding: 1em 0;
 }
-/* 
-.app__table th:first-of-type {
-  width: 15%;
-}
-
-.app__table th:nth-of-type(2) {
-  width: 20%;
-}
-
-.app__table th:nth-of-type(3) {
-  width: 20%;
-} */
 
 .table__flag {
   border-radius: 0.25em;
@@ -279,6 +291,7 @@ legend {
 
 .app__table a {
   color: inherit;
+  padding-inline-end: 0.5em;
   text-decoration: none;
 }
 
@@ -394,6 +407,7 @@ legend {
   header img {
     transform: translateY(-1.5em);
   }
+
   main {
     border: 1px solid var(--color-neutral-700);
     border-radius: 1em;
@@ -413,5 +427,11 @@ legend {
 
   .app__table th {
     padding-block-start: 0;
+  }
+}
+
+@media (min-width: 75em) {
+  .large-only {
+    display: block;
   }
 }
