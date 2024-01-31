@@ -424,6 +424,36 @@ legend {
   text-decoration: none;
 }
 
+.app__return {
+  aspect-ratio: 1;
+  background-color: var(--color-blue);
+  background-image: url(./assets/images/Expand_down_light.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  border: 0;
+  bottom: 2em;
+  color: var(--color-neutral-200);
+  cursor: pointer;
+  font: inherit;
+  opacity: 0;
+  position: fixed;
+  right: 1em;
+  transform: rotate(180deg);
+  transition: opacity 0.5s;
+  visibility: hidden;
+  width: 5em;
+}
+
+.app__return.show {
+  opacity: 0.25 !important;
+  visibility: visible;
+}
+
+.app__return:is(:hover, :focus-visible) {
+  opacity: 1 !important;
+}
+
 @media (min-width: 60em) {
   header img {
     transform: translateY(-1.5em);

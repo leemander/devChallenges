@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./Header";
+import Return from "./Return";
 
 function App() {
   const [COUNTRIES, setCOUNTRIES] = useState([]);
@@ -33,6 +34,7 @@ function App() {
           element={<Country COUNTRIES={COUNTRIES} />}
         />
       </Routes>
+      <Return />
     </BrowserRouter>
   );
 }
