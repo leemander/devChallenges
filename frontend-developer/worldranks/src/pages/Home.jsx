@@ -16,7 +16,7 @@ export default function Home({ COUNTRIES }) {
     un: false,
     independent: false,
   });
-  const [sort, setSort] = useState("name");
+  const [sort, setSort] = useState("population");
   useEffect(() => {
     setFilteredCountries(COUNTRIES);
   }, [COUNTRIES]);
@@ -110,8 +110,8 @@ export default function Home({ COUNTRIES }) {
                   setSort(e.target.value);
                 }}
               >
-                <option value="name">Name</option>
                 <option value="population">Population</option>
+                <option value="name">Name</option>
                 <option value="area">Area</option>
               </select>
             </label>
