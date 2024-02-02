@@ -14,6 +14,7 @@ function App() {
 
   return (
     <>
+      <header className="header"></header>
       <div className="container">
         <main className="collection">
           <h1>Our Collection</h1>
