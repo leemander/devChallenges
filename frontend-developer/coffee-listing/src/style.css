@@ -98,7 +98,7 @@ select {
 .container {
   margin-inline: auto;
   max-width: 70em;
-  width: calc(100% - 5em);
+  width: calc(100% - 1em);
 }
 
 .flex {
@@ -252,7 +252,7 @@ h2 {
 
 @media (max-width: 42em) {
   .container {
-    max-width: 30em;
+    max-width: 25em;
   }
 
   .collection {
