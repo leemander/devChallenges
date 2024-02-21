@@ -128,6 +128,16 @@ form {
   padding: 2rem;
 }
 
+@media (max-width: 25em) {
+  .container {
+    width: 100vw;
+  }
+
+  form {
+    min-height: 27em;
+  }
+}
+
 h2,
 h3 {
   font-weight: inherit;
