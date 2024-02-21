@@ -12,20 +12,22 @@
       <div class="container">
         <h1 class="sr-only">Multi-step Register Form</h1>
         <form class="grid white">
-          <section class="form__step" id="step1">
-            <h2>Register</h2>
-            <label class="grey grid" for="name">
+          <section class="form__step grid" id="step1">
+            <h2 class="fs-400">Register</h2>
+            <label class="grey grid fs-200" for="name">
               Name
               <input
+                class="custom-input"
                 type="text"
                 id="name"
                 name="name"
                 placeholder="Enter your name"
               />
             </label>
-            <label class="grey grid" for="email">
+            <label class="grey grid fs-200" for="email">
               Email
               <input
+                class="custom-input"
                 type="email"
                 id="email"
                 name="email"
@@ -35,41 +37,43 @@
           </section>
           <section class="form__step" id="step2">
             <fieldset class="grid">
-              <h2>What topics are you interested in?</h2>
-              <label class="grey" for="dev">
+              <h2 class="fs-400">What topics are you interested in?</h2>
+              <label class="fs-300 grey custom-input custom-input" for="dev">
                 Software Development
                 <input type="checkbox" id="dev" name="dev" />
               </label>
-              <label class="grey" for="ux">
+              <label class="fs-300 grey custom-input custom-input" for="ux">
                 User Experience
                 <input type="checkbox" id="ux" name="ux" />
               </label>
-              <label class="grey" for="design">
+              <label class="fs-300 grey custom-input custom-input" for="design">
                 Graphic Design
                 <input type="checkbox" id="design" name="design" />
               </label>
             </fieldset>
           </section>
-          <section class="form__step grid" id="step3">
-            <h2>Summary</h2>
+          <section class="form__step fs-300 grid" id="step3">
+            <h2 class="fs-400">Summary</h2>
             <p>
               <span class="grey">Name:</span>
-              <span id="summary-name">John Smith</span>
+              <span id="summary-name"></span>
             </p>
             <p>
               <span class="grey">Email:</span>
-              <span id="summary-email">john.smith@gmail.com</span>
+              <span id="summary-email"></span>
             </p>
             <ul id="summary-topics">
               <h3 class="grey">Topics:</h3>
             </ul>
           </section>
-          <button id="continue-btn">Continue</button>
+          <button class="form__button fs-300" id="continue-btn">
+            Continue
+          </button>
         </form>
-        <div class="flex dark-grey">
-          <p>Step <span id="current-page">1</span> of 3</p>
-          <div class="pagination">
-            <div class="pagination__dot" id="dot1"></div>
+        <div class="flex dark-grey pagination-wrapper">
+          <p class="fs-200">Step <span id="current-page">1</span> of 3</p>
+          <div class="flex">
+            <div class="pagination__dot current filled" id="dot1"></div>
             <div class="pagination__dot" id="dot2"></div>
             <div class="pagination__dot" id="dot3"></div>
           </div>

@@ -11,8 +11,8 @@
   --color-neutral-800: hsl(217, 24%, 17%);
   --color-neutral-900: hsl(222, 36%, 11%);
 
-  --color-purple-light: #845eee;
-  --color-purple-dark: #652cd1;
+  --color-purple-light: hsl(256, 81%, 65%);
+  --color-purple-dark: hsl(261, 65%, 50%);
 
   --ff-sans-serif: "Inter", system-ui, sans-serif;
 
@@ -116,15 +116,105 @@ body {
   margin-inline: auto;
   max-width: 38em;
   padding: 1rem;
+  width: 80dvw;
 }
 
 form {
   background-color: var(--color-neutral-800);
-  border: 1px solid var(--color-neutral-100);
-  padding: 3rem;
+  border: 1px solid var(--color-neutral-600);
+  border-radius: 1rem;
+  padding: 2rem;
 }
 
 h2,
 h3 {
   font-weight: inherit;
+}
+
+label {
+  --gap: 0.5rem;
+}
+
+.form__step#step1 {
+  --gap: 2rem;
+}
+
+.custom-input {
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 0.75rem;
+  color: inherit;
+  padding: 1rem;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+}
+
+fieldset > .custom-input {
+  background-color: var(--color-neutral-700);
+  color: var(--color-neutral-500);
+  cursor: pointer;
+  position: relative;
+
+  & > input {
+    position: absolute;
+    left: 50%;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:has(> :focus-visible) {
+    border-color: var(--color-purple-light);
+    color: var(--color-neutral-100);
+  }
+
+  &:has(> :checked) {
+    background-color: var(--color-purple-dark);
+    border-color: var(--color-purple-light);
+    color: var(--color-neutral-100);
+  }
+}
+
+.form__step#step3 > ul {
+  padding: 0;
+}
+
+.form__button {
+  background-image: linear-gradient(
+    var(--color-purple-light),
+    var(--color-purple-dark)
+  );
+  border: 0;
+  border-radius: 10000em;
+  color: var(--color-neutral-100);
+  cursor: pointer;
+  display: block;
+  width: fit-content;
+  margin: 2rem auto 0 auto;
+  padding: 0.75rem 2rem;
+}
+
+.pagination-wrapper {
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  padding-block: 1rem;
+}
+
+.pagination__dot {
+  align-items: center;
+  aspect-ratio: 1;
+  background-color: var(--color-neutral-600);
+  border-radius: 50%;
+  height: 0.7rem;
+}
+
+.pagination__dot.filled {
+  background-color: var(--color-purple-dark);
+}
+
+.pagination__dot.current {
+  box-shadow: 0 0 0 0.35rem hsl(256 81% 65% / 0.33);
 }
