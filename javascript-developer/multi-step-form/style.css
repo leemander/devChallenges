@@ -58,11 +58,17 @@ select {
 
 /*RESET ENDS*/
 
+.sr-only {
+  aspect-ratio: 1;
+  height: 1px;
+  position: absolute;
+  left: -1000vw;
+}
+
 .grid {
   display: grid;
   gap: var(--gap, 1rem);
 }
-
 .flex {
   align-items: center;
   display: flex;
@@ -72,6 +78,9 @@ select {
 
 .white {
   color: var(--color-neutral-100);
+}
+.dark-grey {
+  color: var(--color-neutral-700);
 }
 .grey {
   color: var(--color-neutral-500);
@@ -88,4 +97,34 @@ select {
 }
 .fs-400 {
   font-size: var(--fs-400);
+}
+
+body {
+  background-color: var(--color-neutral-900);
+  background-image: url("./blur-radial.svg"), url("./blur-radial.svg");
+  background-repeat: no-repeat;
+  background-position: top left, bottom right;
+  font-family: var(--ff-sans-serif);
+  font-size: var(--fs-300);
+  font-weight: 400;
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+}
+
+.container {
+  margin-inline: auto;
+  max-width: 38em;
+  padding: 1rem;
+}
+
+form {
+  background-color: var(--color-neutral-800);
+  border: 1px solid var(--color-neutral-100);
+  padding: 3rem;
+}
+
+h2,
+h3 {
+  font-weight: inherit;
 }
