@@ -8,6 +8,57 @@
     <script defer src="app.js"></script>
   </head>
   <body>
-    <h1>Hello</h1>
+    <main>
+      <h1 class="sr-only">Multi-step Register Form</h1>
+      <form>
+        <section class="form__step" id="step1">
+          <h2>Register</h2>
+          <label for="name">
+            Name
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+            />
+          </label>
+          <label for="email">
+            Email
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+            />
+          </label>
+        </section>
+        <section class="form__step" id="step2">
+          <fieldset>
+            <h2>What topics are you interested in?</h2>
+            <label for="dev">
+              Software Development
+              <input type="checkbox" id="dev" name="dev" />
+            </label>
+            <label for="ux">
+              User Experience
+              <input type="checkbox" id="ux" name="ux" />
+            </label>
+            <label for="design">
+              Graphic Design
+              <input type="checkbox" id="design" name="design" />
+            </label>
+          </fieldset>
+        </section>
+        <section class="form__step" id="step3">
+          <h2>Summary</h2>
+          <p>Name:<span id="summary-name">John Smith</span></p>
+          <p>Email:<span id="summary-email">john.smith@gmail.com</span></p>
+          <ul id="summary-topics">
+            <h3>Topics:</h3>
+          </ul>
+        </section>
+        <button id="continue-btn">Continue</button>
+      </form>
+    </main>
   </body>
 </html>
