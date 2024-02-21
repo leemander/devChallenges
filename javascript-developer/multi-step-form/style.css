@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "Inter";
+  src: url("./Inter-VariableFont_slnt_wght.ttf");
+}
+
+:root {
+  --color-neutral-100: hsl(220, 13%, 91%);
+  --color-neutral-500: hsl(240, 4%, 65%);
+  --color-neutral-600: hsl(217, 12%, 34%);
+  --color-neutral-700: hsl(219, 17%, 27%);
+  --color-neutral-800: hsl(217, 24%, 17%);
+  --color-neutral-900: hsl(222, 36%, 11%);
+
+  --color-purple-light: #845eee;
+  --color-purple-dark: #652cd1;
+
+  --ff-sans-serif: "Inter", system-ui, sans-serif;
+
+  --fs-100: 0.75rem;
+  --fs-200: 0.875rem;
+  --fs-300: 1rem;
+  --fs-400: 1.25rem;
+}
+
+/*RESET*/
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*RESET ENDS*/
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.flex {
+  align-items: center;
+  display: flex;
+  gap: var(--gap, 1rem);
+  flex-wrap: wrap;
+}
+
+.white {
+  color: var(--color-neutral-100);
+}
+.grey {
+  color: var(--color-neutral-500);
+}
+
+.fs-100 {
+  font-size: var(--fs-100);
+}
+.fs-200 {
+  font-size: var(--fs-200);
+}
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
