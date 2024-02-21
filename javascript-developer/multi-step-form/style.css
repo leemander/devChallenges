@@ -123,6 +123,8 @@ form {
   background-color: var(--color-neutral-800);
   border: 1px solid var(--color-neutral-600);
   border-radius: 1rem;
+  grid-template-rows: 1fr auto;
+  min-height: 25em;
   padding: 2rem;
 }
 
@@ -133,6 +135,14 @@ h3 {
 
 label {
   --gap: 0.5rem;
+}
+
+.form__step {
+  display: none;
+
+  &.current {
+    display: grid;
+  }
 }
 
 .form__step#step1 {

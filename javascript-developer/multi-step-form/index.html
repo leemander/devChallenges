@@ -12,7 +12,7 @@
       <div class="container">
         <h1 class="sr-only">Multi-step Register Form</h1>
         <form class="grid white">
-          <section class="form__step grid" id="step1">
+          <section class="form__step grid current" id="step1">
             <h2 class="fs-400">Register</h2>
             <label class="grey grid fs-200" for="name">
               Name
@@ -35,7 +35,7 @@
               />
             </label>
           </section>
-          <section class="form__step" id="step2">
+          <section class="form__step grid" id="step2">
             <fieldset class="grid">
               <h2 class="fs-400">What topics are you interested in?</h2>
               <label class="fs-300 grey custom-input custom-input" for="dev">
@@ -54,14 +54,16 @@
           </section>
           <section class="form__step fs-300 grid" id="step3">
             <h2 class="fs-400">Summary</h2>
-            <p>
-              <span class="grey">Name:</span>
-              <span id="summary-name"></span>
-            </p>
-            <p>
-              <span class="grey">Email:</span>
-              <span id="summary-email"></span>
-            </p>
+            <div>
+              <p class="grid">
+                <span class="grey">Name:</span>
+                <span id="summary-name"></span>
+              </p>
+              <p>
+                <span class="grey">Email:</span>
+                <span id="summary-email"></span>
+              </p>
+            </div>
             <ul id="summary-topics">
               <h3 class="grey">Topics:</h3>
             </ul>
@@ -71,7 +73,7 @@
           </button>
         </form>
         <div class="flex dark-grey pagination-wrapper">
-          <p class="fs-200">Step <span id="current-page">1</span> of 3</p>
+          <p class="fs-200">Step <span id="current-step">1</span> of 3</p>
           <div class="flex">
             <div class="pagination__dot current filled" id="dot1"></div>
             <div class="pagination__dot" id="dot2"></div>
