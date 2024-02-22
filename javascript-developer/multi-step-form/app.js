@@ -49,7 +49,8 @@ function changeStep() {
     if (validateForm()) currentStep++;
   } else {
     alert("Success!");
-    // location.reload();
+    location.reload();
+    return;
   }
 
   steps.forEach((step) => step.classList.remove("current"));
@@ -70,14 +71,6 @@ function changeStep() {
 }
 
 function populateTopicsList() {
-  for (let i = 0; i < summaryTopics.childNodes.length; i++) {
-    //resets topics ul to prevent duplicates by removing every child apart from the heading
-    console.log(summaryTopics.childNodes[i]);
-    if (summaryTopics.childNodes[i].innerText !== "Topics:") {
-      summaryTopics.removeChild(summaryTopics.childNodes[i]);
-    }
-  }
-
   const checkboxes = [devInput, uxInput, designInput];
   checkboxes.forEach((box) => {
     if (box.checked) {
