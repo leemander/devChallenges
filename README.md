@@ -14,7 +14,7 @@ Solutions to challenges sourced from [devChallenges.io](https://devchallenges.io
 
 - [Music Player](https://leemander.github.io/devChallenges/javascript-developer/music-player/)
 - [Guess the Word](https://leemander.github.io/devChallenges/javascript-developer/guess-the-word/)
-- [Multi-step Register Form](https://leemander.github.io/devChallenges/javascript-developer/multi-step-form/) _Under construction_
+- [Multi-step Register Form](https://leemander.github.io/devChallenges/javascript-developer/multi-step-form/)
 
 ## Frontend Developer Path
 
