@@ -102,14 +102,22 @@ select {
 body {
   background-color: var(--color-neutral-900);
   background-image: url("./blur-radial.svg"), url("./blur-radial.svg");
+  background-size: 80dvw;
   background-repeat: no-repeat;
-  background-position: top left, bottom right;
+  background-position: top -40dvw left -30dvw, bottom -40dvw right -30dvw;
   font-family: var(--ff-sans-serif);
   font-size: var(--fs-300);
   font-weight: 400;
   display: grid;
   min-height: 100dvh;
   place-items: center;
+}
+
+@media (max-width: 40em) {
+  body {
+    background-size: 110dvw;
+    background-position: top -25dvw left -40dvw, bottom -25dvw right -40dvw;
+  }
 }
 
 .container {
