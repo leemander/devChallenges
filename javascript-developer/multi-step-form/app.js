@@ -30,6 +30,7 @@ function changeStep() {
     currentStep++;
   } else {
     alert("Success!");
+    location.reload();
   }
 
   steps.forEach((step) => step.classList.remove("current"));
@@ -42,8 +43,29 @@ function changeStep() {
   dots[currentStep].classList.add("current");
 
   if (currentStep === 2) {
+    summaryName.innerText = nameInput.value;
+    summaryEmail.innerText = emailInput.value;
+    populateTopicsList();
     continueButton.innerText = "Confirm";
   }
+}
+
+function populateTopicsList() {
+  for (let i = 0; i < summaryTopics.childNodes.length; i++) {
+    //resets topics ul to prevent duplicates by removing every child apart from the heading
+    if (summaryTopics.childNodes[i].innerText !== "Topics:") {
+      summaryTopics.removeChild(summaryTopics.childNodes[i]);
+    }
+  }
+
+  const checkboxes = [devInput, uxInput, designInput];
+  checkboxes.forEach((box) => {
+    if (box.checked) {
+      const li = document.createElement("li");
+      li.innerText = box.dataset.title;
+      summaryTopics.append(li);
+    }
+  });
 }
 
 continueButton.addEventListener("click", (e) => {

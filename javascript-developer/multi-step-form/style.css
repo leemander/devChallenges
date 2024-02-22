@@ -198,6 +198,7 @@ fieldset > .custom-input {
 }
 
 .form__step#step3 > ul {
+  list-style-position: inside;
   padding: 0;
 }
 
