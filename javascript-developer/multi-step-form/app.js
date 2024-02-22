@@ -25,12 +25,31 @@ const currentStepEl = document.getElementById("current-step");
 const steps = [step1, step2, step3];
 const dots = [dot1, dot2, dot3];
 
+function validateForm() {
+  let error = "";
+  if (currentStep === 0) {
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    if (!nameInput.value) {
+      error += "Name must not be blank";
+    } else if (!emailInput.value.match(emailRegex)) {
+      error += "Email must be valid";
+    }
+  }
+
+  if (error != "") {
+    alert(error);
+    return false;
+  }
+
+  return true;
+}
+
 function changeStep() {
   if (currentStep < 2) {
-    currentStep++;
+    if (validateForm()) currentStep++;
   } else {
     alert("Success!");
-    location.reload();
+    // location.reload();
   }
 
   steps.forEach((step) => step.classList.remove("current"));
@@ -53,6 +72,7 @@ function changeStep() {
 function populateTopicsList() {
   for (let i = 0; i < summaryTopics.childNodes.length; i++) {
     //resets topics ul to prevent duplicates by removing every child apart from the heading
+    console.log(summaryTopics.childNodes[i]);
     if (summaryTopics.childNodes[i].innerText !== "Topics:") {
       summaryTopics.removeChild(summaryTopics.childNodes[i]);
     }
