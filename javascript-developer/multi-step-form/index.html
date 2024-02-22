@@ -15,7 +15,12 @@
           <section class="form__step grid current" id="step1">
             <h2 class="fs-400">Register</h2>
             <label class="grey grid fs-200" for="name">
-              Name
+              <span class="flex" style="justify-content: space-between">
+                Name
+                <span class="form__error" id="name-error"
+                  >Your name is required</span
+                >
+              </span>
               <input
                 class="custom-input"
                 type="text"
@@ -25,7 +30,12 @@
               />
             </label>
             <label class="grey grid fs-200" for="email">
-              Email
+              <span class="flex" style="justify-content: space-between">
+                Email
+                <span class="form__error" id="email-error"
+                  >A valid email address is required</span
+                >
+              </span>
               <input
                 class="custom-input"
                 type="email"
@@ -66,6 +76,9 @@
                 />
               </label>
             </fieldset>
+            <span class="form__error" id="topics-error">
+              At least one topic is required
+            </span>
           </section>
           <section class="form__step fs-300 grid" id="step3">
             <h2 class="fs-400">Summary</h2>
@@ -79,7 +92,7 @@
                 <span id="summary-email"></span>
               </p>
             </div>
-            <ul id="summary-topics">
+            <ul class="grid" id="summary-topics" style="--gap: 0.5rem">
               <h3 class="grey">Topics:</h3>
             </ul>
           </section>

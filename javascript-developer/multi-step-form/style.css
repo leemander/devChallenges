@@ -134,7 +134,7 @@ form {
   }
 
   form {
-    min-height: 27em;
+    min-height: 30em;
   }
 }
 
@@ -157,6 +157,19 @@ label {
 
 .form__step#step1 {
   --gap: 2rem;
+}
+
+.form__step#step2 {
+  grid-template-rows: auto 1fr auto;
+}
+
+.form__error {
+  color: hsl(0, 100%, 64%);
+  visibility: hidden;
+}
+
+.form__error.show {
+  visibility: visible;
 }
 
 .custom-input {
@@ -195,6 +208,10 @@ fieldset > .custom-input {
     border-color: var(--color-purple-light);
     color: var(--color-neutral-100);
   }
+}
+
+.form__error#topics-error {
+  padding-inline-start: 0.5rem;
 }
 
 .form__step#step3 > ul {
